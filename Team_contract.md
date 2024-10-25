@@ -11,3 +11,8 @@ My primary role is to test the integration of our app’s components to ensure t
 I will use test-driven development and beta testing feedback to analyze app functionality, validate that integrated features meet the client’s requirements, and contribute to high-quality iterations. 
 Throughout the project, I will collaborate closely with my teammates to align our work with the client’s vision and create a polished app ready for deployment. 
 If challenges arise, I will discuss and resolve them with my team or consult Dr. Goadrich if needed.
+
+## Tucker Brock - Unit Tester
+My primary role is to create unit tests for our app's target functionalities, ensuring that as we add new features we don't break previous ones. This requires that I also spend significant time working with each member to understand what they have implemented to ensure I understand it well enough to create unit tests for them.
+Since these roles are fluid, I expect that we will each write our own unit tests for the code that we create and then my job will be to ensure they are written well and are properly formatted. To contribute to a positive team environment, I will communicate to my teammates when I make changes and I will congratulate them on their major accomplishments. 
+I think the unanimous vote system will be a good way to solve conflicts.
