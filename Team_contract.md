@@ -1,4 +1,11 @@
-## Hendrix Tours App Team Contract
+# Hendrix Tours App Team Contract
+## Team Expectations:
+**Meeting Often** - We will be meeting once a week on Tuesday's
+
+**Working Togother** - We will be communicating and asking for help/clarification from each other.
+We will also be making big decisions together.
+
+**Being Responsible** - We will each be timely with our responsibilities and seek help or clarification if needed.
 
 ## Henry Spayde - Client Interfacer
 My primary role is to contact the client and interact with them to benefit both our understanding and the client's understanding of the purpose and direction, as well as current status, of the app.
