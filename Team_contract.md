@@ -1,4 +1,4 @@
-##Hendrix Tours App Team Contract
+## Hendrix Tours App Team Contract
 
 ## Henry Spayde - Client Interfacer
 My primary role is to contact the client and interact with them to benefit both our understanding and the client's understanding of the purpose and direction, as well as current status, of the app.
