@@ -18,13 +18,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor:hendrixOrange),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const FoodHousingPage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class FoodHousingPage extends StatelessWidget {
+  const FoodHousingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,12 +58,9 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    child: const Text(
+                    child: Text(
                       'The Caf',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.displaySmall
                     ),
                   ),
                 ),
@@ -81,12 +78,9 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    child: const Text(
+                    child: Text(
                       'The Burrow',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.displaySmall
                     ),
                   ),
                 ),
@@ -104,12 +98,9 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Northside Halls',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
                 ),
@@ -127,12 +118,9 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Southside Halls',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.displaySmall
                     ),
                   ),
                 ),
@@ -150,12 +138,9 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Apartments',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.displaySmall
                     ),
                   ),
                 ),
@@ -173,12 +158,9 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    child: const Text(
+                    child: Text(
                       'The Houses',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.displaySmall
                     ),
                   ),
                 ),
@@ -196,12 +178,9 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Residence Life: What To Expect',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.displaySmall
                     ),
                   ),
                 ),
@@ -232,7 +211,7 @@ class HomePage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 8.0),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    // Add navigation logic here
+                    Navigator.pop(context);
                   },
                   icon: const Icon(Icons.home),
                   label: const Text(
