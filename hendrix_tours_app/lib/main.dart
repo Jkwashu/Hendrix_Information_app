@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hendrix_tours_app/objects/theme_data.dart';
 import 'package:hendrix_tours_app/screens/academics_page.dart';
+import 'package:hendrix_tours_app/screens/athletics_page.dart';
 import 'package:hendrix_tours_app/screens/student_life_page.dart';
 
 Color hendrixOrange = const Color.fromRGBO(245, 130, 42, 1);
@@ -79,7 +80,11 @@ class HomePage extends StatelessWidget {
                 height: 60,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Add navigation logic here
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AthleticsPage()),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: hendrixOrange,
