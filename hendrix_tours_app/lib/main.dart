@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hendrix_tours_app/student_life_page.dart';
+import 'package:hendrix_tours_app/objects/theme_data.dart';
+import 'package:hendrix_tours_app/screens/student_life_page.dart';
 
 Color hendrixOrange = const Color.fromRGBO(245, 130, 42, 1);
 
@@ -15,10 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: hendrixOrange),
-        useMaterial3: true,
-      ),
+      theme: hendrixTodayLightMode,
       home: const HomePage(),
     );
   }
