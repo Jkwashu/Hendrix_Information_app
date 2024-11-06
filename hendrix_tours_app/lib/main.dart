@@ -47,9 +47,17 @@ class HomePage extends StatelessWidget {
                 height: 200, // Adjust height as needed
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8),                
                 ),
+                child: Center(
+                  child: Text(
+                  'MAP',
+                  style: Theme.of(context).textTheme.headlineLarge,
+              )
+              )
               ),
+              
+              
 
               const SizedBox(height: 24), // Spacing after the box
 
