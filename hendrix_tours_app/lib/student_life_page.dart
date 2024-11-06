@@ -1,31 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hendrix_tours_app/student_life_page.dart';
 
 Color hendrixOrange = const Color.fromRGBO(245, 130, 42, 1);
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: hendrixOrange),
-        useMaterial3: true,
-      ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class StudentLifePage extends StatelessWidget {
+  const StudentLifePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +25,7 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 24), // Spacing after the box
 
-              // Button for Academics
+              // Button for Clubs
               SizedBox(
                 width: double.infinity,
                 height: 60,
@@ -62,7 +40,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   child: const Text(
-                    'Academics',
+                    'Clubs',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -73,7 +51,7 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 16), // Spacing between buttons
 
-              // Button for Athletics
+              // Button for Annual Events
               SizedBox(
                 width: double.infinity,
                 height: 60,
@@ -88,63 +66,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   child: const Text(
-                    'Athletics',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 16), // Spacing between buttons
-
-              // Button for Food and Housing
-              SizedBox(
-                width: double.infinity,
-                height: 60,
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Add navigation logic here
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: hendrixOrange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: const Text(
-                    'Food and Housing',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 16), // Spacing between buttons
-
-              // Button for Student Life
-              SizedBox(
-                width: double.infinity,
-                height: 60,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const StudentLifePage()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: hendrixOrange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: const Text(
-                    'Student Life',
+                    'Annual Events',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -178,7 +100,7 @@ class HomePage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 8.0),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    // Add navigation logic here
+                    Navigator.pop(context);
                   },
                   icon: const Icon(Icons.home),
                   label: const Text(
