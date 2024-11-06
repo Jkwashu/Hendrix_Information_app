@@ -11,6 +11,7 @@ class StudentLifePage extends StatelessWidget {
             appBar: AppBar(
         title: Text('Hendrix Tours', style: Theme.of(context).textTheme.displayLarge), 
         backgroundColor: hendrixOrange, 
+        automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: Padding(
