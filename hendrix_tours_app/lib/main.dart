@@ -4,8 +4,10 @@ import 'package:hendrix_tours_app/screens/academics_page.dart';
 import 'package:hendrix_tours_app/screens/athletics_page.dart';
 import 'package:hendrix_tours_app/screens/student_life_page.dart';
 import 'package:hendrix_tours_app/screens/food_housing.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Color hendrixOrange = const Color.fromRGBO(245, 130, 42, 1);
+final Uri _url = Uri.parse('https://www.hendrix.edu/visit/');
 
 void main() {
   runApp(const MyApp());
@@ -183,31 +185,31 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             // Back to Home button
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: ElevatedButton.icon(
-                  onPressed: () {
-                    // Add navigation logic here
-                  },
-                  icon: const Icon(Icons.home),
-                  label: const Text(
-                    'Back to Home',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: hendrixOrange,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            // Expanded(
+            //   child: Padding(
+            //     padding: const EdgeInsets.only(right: 8.0),
+            //     child: ElevatedButton.icon(
+            //       onPressed: () {
+            //         // Add navigation logic here
+            //       },
+            //       icon: const Icon(Icons.home),
+            //       label: const Text(
+            //         'Back to Home',
+            //         style: TextStyle(
+            //           fontWeight: FontWeight.bold,
+            //         ),
+            //       ),
+            //       style: ElevatedButton.styleFrom(
+            //         backgroundColor: hendrixOrange,
+            //         foregroundColor: Colors.white,
+            //         padding: const EdgeInsets.symmetric(vertical: 12),
+            //         shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(8),
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             // Schedule a Tour button
             Expanded(
               child: Padding(
@@ -215,6 +217,7 @@ class HomePage extends StatelessWidget {
                 child: ElevatedButton.icon(
                   onPressed: () {
                     // Add Link Logic
+                    _launchUrl();
                   },
                   icon: const Icon(Icons.calendar_today),
                   label: const Text(
@@ -238,5 +241,12 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+// From: https://pub.dev/packages/url_launcher
+Future<void> _launchUrl() async {
+  if (!await launchUrl(_url)) {
+    throw Exception('Could not launch $_url');
   }
 }
