@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "252680531124",
+    "project_id": "hendrix-tours-app",
+    "storage_bucket": "hendrix-tours-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252680531124:android:b455c169f4562e7d6fbbe1",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVHXjeB4U0OIe8L5T6cUrCqEVyORer9vQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
