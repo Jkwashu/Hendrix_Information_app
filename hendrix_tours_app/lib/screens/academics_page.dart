@@ -30,53 +30,61 @@ class AcademicsPage extends StatelessWidget {
               ),
 
               const SizedBox(height: 24), // Spacing after the box
+              
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      // Button for Clubs
+                      SizedBox(
+                        width: double.infinity,
+                        height: 60,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // Add navigation logic here
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: hendrixOrange,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: Text(
+                            'Majors',
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                        ),
+                      ),
 
-              // Button for Clubs
-              SizedBox(
-                width: double.infinity,
-                height: 60,
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Add navigation logic here
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: hendrixOrange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: Text(
-                    'Majors',
-                    style: Theme.of(context).textTheme.displaySmall,
-                  ),
-                ),
-              ),
+                      const SizedBox(height: 16), // Spacing between buttons
 
-              const SizedBox(height: 16), // Spacing between buttons
-
-              // Button for Annual Events
-              SizedBox(
-                width: double.infinity,
-                height: 60,
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Add navigation logic here
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: hendrixOrange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: Text(
-                    'Departments',
-                    style: Theme.of(context).textTheme.displaySmall,
+                      // Button for Annual Events
+                      SizedBox(
+                        width: double.infinity,
+                        height: 60,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // Add navigation logic here
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: hendrixOrange,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: Text(
+                            'Departments',
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
             ],
           ),
-        ),
+        )
       ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16.0),

@@ -19,7 +19,6 @@ class ClubsPage extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
             child: Column(
               children: [
                 Container(
@@ -33,125 +32,132 @@ class ClubsPage extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // The Profile Club
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ProfileClubPage()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'The Profile',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        // The Profile Club
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ProfileClubPage()),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'The Profile',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
 
-                const SizedBox(height: 16),
+                        const SizedBox(height: 16),
 
-                // KHDX 93.1 FM
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add club details navigation here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'KHDX 93.1 FM',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
+                        // KHDX 93.1 FM
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add club details navigation here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'KHDX 93.1 FM',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
 
-                const SizedBox(height: 16),
+                        const SizedBox(height: 16),
 
-                // SOAR
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add club details navigation here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'Student Outreach & Alternative Resources (SOAR)',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
+                        // SOAR
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add club details navigation here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Student Outreach & Alternative Resources (SOAR)',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
 
-                const SizedBox(height: 16),
+                        const SizedBox(height: 16),
 
-                // The Aonian
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add club details navigation here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'The Aonian',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
+                        // The Aonian
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add club details navigation here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'The Aonian',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
 
-                const SizedBox(height: 16),
+                        const SizedBox(height: 16),
 
-                // Sword Club
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add club details navigation here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
+                        // Sword Club
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add club details navigation here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Sword Club',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    child: Text(
-                      'Sword Club',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
+                  )
+                )
               ],
             ),
-          ),
         ),
       ),
       bottomNavigationBar: Container(

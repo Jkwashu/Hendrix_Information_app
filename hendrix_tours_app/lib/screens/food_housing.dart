@@ -38,7 +38,6 @@ class FoodHousingPage extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
             child: Column(
               children: [
                 // Temporary Container for the map
@@ -51,148 +50,155 @@ class FoodHousingPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 24), // Spacing after the box
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'The Caf',
+                              style: Theme.of(context).textTheme.displaySmall
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16), // Spacing between buttons
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'The Burrow',
+                              style: Theme.of(context).textTheme.displaySmall
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16), // Spacing between buttons
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Northside Halls',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16), // Spacing between buttons
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Southside Halls',
+                              style: Theme.of(context).textTheme.displaySmall
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16), // Spacing between buttons
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Apartments',
+                              style: Theme.of(context).textTheme.displaySmall
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16), // Spacing between buttons
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'The Houses',
+                              style: Theme.of(context).textTheme.displaySmall
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16), // Spacing between buttons
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Residence Life: What To Expect',
+                              style: Theme.of(context).textTheme.displaySmall
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    child: Text(
-                      'The Caf',
-                      style: Theme.of(context).textTheme.displaySmall
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16), // Spacing between buttons
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'The Burrow',
-                      style: Theme.of(context).textTheme.displaySmall
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16), // Spacing between buttons
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'Northside Halls',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16), // Spacing between buttons
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'Southside Halls',
-                      style: Theme.of(context).textTheme.displaySmall
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16), // Spacing between buttons
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'Apartments',
-                      style: Theme.of(context).textTheme.displaySmall
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16), // Spacing between buttons
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'The Houses',
-                      style: Theme.of(context).textTheme.displaySmall
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16), // Spacing between buttons
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'Residence Life: What To Expect',
-                      style: Theme.of(context).textTheme.displaySmall
-                    ),
-                  ),
+                  )
                 ),
               ],
             ),
-          ),
         ),
       ),
      bottomNavigationBar: Container(

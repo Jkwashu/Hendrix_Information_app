@@ -17,7 +17,6 @@ class AthleticsPage extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
             child: Column(
               children: [
                 // Temporary Container for the map
@@ -32,174 +31,181 @@ class AthleticsPage extends StatelessWidget {
                 
                 const SizedBox(height: 24), // Spacing after the box
                 
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Wellness and Athletics Center',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
+                        
+                        const SizedBox(height: 16), // Spacing between buttons
+                        
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Sturgis Athletic Center',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
+                        
+                        const SizedBox(height: 16), // Spacing between buttons
+                        
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Young-Wise Memorial Stadium',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
+                        
+                        const SizedBox(height: 16), // Spacing between buttons
+                        
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Hatcher Tennis Center',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16), // Spacing between buttons
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Warrior Soccer Field',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16), // Spacing between buttons
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Warrior Baseball Field',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16), // Spacing between buttons
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Warrior Softball Field',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        SizedBox(
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add navigation logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: hendrixOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              'Warrior Lacrosse Field',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    child: Text(
-                      'Wellness and Athletics Center',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
-                
-                const SizedBox(height: 16), // Spacing between buttons
-                
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'Sturgis Athletic Center',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
-                
-                const SizedBox(height: 16), // Spacing between buttons
-                
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'Young-Wise Memorial Stadium',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
-                
-                const SizedBox(height: 16), // Spacing between buttons
-                
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'Hatcher Tennis Center',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16), // Spacing between buttons
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'Warrior Soccer Field',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16), // Spacing between buttons
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'Warrior Baseball Field',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16), // Spacing between buttons
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'Warrior Softball Field',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add navigation logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: hendrixOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      'Warrior Lacrosse Field',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
+                  )
+                )
               ],
             ),
-          ),
         ),
       ),
      bottomNavigationBar: Container(
