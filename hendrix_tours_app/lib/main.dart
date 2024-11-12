@@ -36,7 +36,8 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Hendrix Tours', style: Theme.of(context).textTheme.displayLarge), 
         backgroundColor: hendrixOrange,
-        automaticallyImplyLeading: false,
+        iconTheme: const IconThemeData(color: Colors.white), 
+        // automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: Padding(

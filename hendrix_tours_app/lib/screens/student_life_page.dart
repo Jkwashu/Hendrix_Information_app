@@ -13,7 +13,8 @@ class ClubsPage extends StatelessWidget {
         title: Text('Hendrix Tours',
             style: Theme.of(context).textTheme.displayLarge),
         backgroundColor: hendrixOrange,
-        automaticallyImplyLeading: false,
+        iconTheme: const IconThemeData(color: Colors.white), 
+        // automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: Padding(
@@ -237,7 +238,8 @@ class AnnualEventsPage extends StatelessWidget {
         title: Text('Hendrix Tours',
             style: Theme.of(context).textTheme.displayLarge),
         backgroundColor: hendrixOrange,
-        automaticallyImplyLeading: false,
+        iconTheme: const IconThemeData(color: Colors.white), 
+        // automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: Padding(
@@ -364,7 +366,8 @@ class ProfileClubPage extends StatelessWidget {
         title: Text('Hendrix Tours',
             style: Theme.of(context).textTheme.displayLarge),
         backgroundColor: hendrixOrange,
-        automaticallyImplyLeading: false,
+        iconTheme: const IconThemeData(color: Colors.white), 
+        // automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: Padding(
@@ -524,7 +527,8 @@ class StudentLifePage extends StatelessWidget {
         title: Text('Hendrix Tours',
             style: Theme.of(context).textTheme.displayLarge),
         backgroundColor: hendrixOrange,
-        automaticallyImplyLeading: false,
+        iconTheme: const IconThemeData(color: Colors.white), 
+        // automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: Padding(
