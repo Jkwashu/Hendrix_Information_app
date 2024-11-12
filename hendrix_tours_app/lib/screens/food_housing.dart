@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hendrix_tours_app/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 Color hendrixOrange = const Color.fromRGBO(245, 130, 42, 1);
