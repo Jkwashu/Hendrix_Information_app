@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hendrix_tours_app/main.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Color hendrixOrange = const Color.fromRGBO(245, 130, 42, 1);
 
@@ -181,7 +183,7 @@ class ClubsPage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 8.0),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.popUntil(context, (route) => route.isFirst);
                   },
                   icon: const Icon(Icons.home),
                   label: const Text(
@@ -206,7 +208,7 @@ class ClubsPage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 8.0),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    // Add Link Logic
+                    _launchUrl();
                   },
                   icon: const Icon(Icons.calendar_today),
                   label: const Text(
@@ -310,7 +312,7 @@ class AnnualEventsPage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 8.0),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.popUntil(context, (route) => route.isFirst);
                   },
                   icon: const Icon(Icons.home),
                   label: const Text(
@@ -335,7 +337,7 @@ class AnnualEventsPage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 8.0),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    // Add Link Logic
+                    _launchUrl();
                   },
                   icon: const Icon(Icons.calendar_today),
                   label: const Text(
@@ -471,7 +473,7 @@ class ProfileClubPage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 8.0),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.popUntil(context, (route) => route.isFirst);
                   },
                   icon: const Icon(Icons.home),
                   label: const Text(
@@ -496,7 +498,7 @@ class ProfileClubPage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 8.0),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    // Add Link Logic
+                    _launchUrl();
                   },
                   icon: const Icon(Icons.calendar_today),
                   label: const Text(
@@ -624,7 +626,7 @@ class StudentLifePage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 8.0),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.popUntil(context, (route) => route.isFirst);
                   },
                   icon: const Icon(Icons.home),
                   label: const Text(
@@ -649,7 +651,7 @@ class StudentLifePage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 8.0),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    // Add Link Logic
+                    _launchUrl();
                   },
                   icon: const Icon(Icons.calendar_today),
                   label: const Text(
@@ -673,5 +675,13 @@ class StudentLifePage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+final Uri _url = Uri.parse('https://www.hendrix.edu/visit/');
+// From: https://pub.dev/packages/url_launcher
+Future<void> _launchUrl() async {
+  if (!await launchUrl(_url)) {
+    throw Exception('Could not launch $_url');
   }
 }
