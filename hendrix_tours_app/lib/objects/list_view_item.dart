@@ -1,11 +1,13 @@
+import 'package:hendrix_tours_app/objects/widget_item.dart';
 
 /*
-This class contains all the data to be used in the ListViewScreen widget.
+This class contains the data and returns a widget of itself with buildWidget.
 */
-class ListViewItem {
-  ListViewItem({required this.title, required this.imagePath, required this.isListView, required this.link});
+class ListViewItem implements WidgetItem {
+  ListViewItem({required this.title, required this.child, required this.imagePath, required this.isListView, required this.link});
   String title;
   //child - use an interface so either ListViewItem or InfoViewItem can be called as children
+  List<WidgetItem> child;
   String imagePath;
   bool isListView;
   String link;
@@ -13,5 +15,10 @@ class ListViewItem {
   @override
   String toString() {
     return title;
+  }
+
+  @override
+  void buildWidget() {
+    
   }
 }

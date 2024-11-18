@@ -1,8 +1,9 @@
+import 'widget_item.dart';
 
 /*
-This class contains all the data to be given to the InfoViewScreen widget.
+This class contains data for the InfoView screen and will return a widget displaying itself.
 */
-class InfoViewItem {
+class InfoViewItem implements WidgetItem {
   InfoViewItem({required this.title,
   required this.description,
   required this.imagePath,
@@ -16,4 +17,9 @@ class InfoViewItem {
   List<InfoViewItem> connBuildings;
   List<InfoViewItem> connDepartments;
   String link;
+
+  @override
+  void buildWidget() {
+
+  }
 }
