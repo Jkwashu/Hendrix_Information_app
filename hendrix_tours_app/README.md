@@ -1,16 +1,4 @@
-# hendrix_tours_app
+# Hendrix Tours
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The Hendrix Tours app allows prospective students to explore the campus, buildings, and amenities of Hendrix College from a single app. The app allows students to guide their own informational tour of Hendrix from their phones and can link them to schedule a formal tour at Hendrix if they wish. 
+The look at a college that a tour provides is essential to the college search experience, so the Hendrix Tours app uses an easy to navigate interface, a  map, photos, informational videos, and comprehensive information on academics, athletics, student life, food, and housing at Hendrix.
