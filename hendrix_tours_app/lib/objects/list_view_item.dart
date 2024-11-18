@@ -1,4 +1,7 @@
 
+/*
+This class contains all the data to be used in the ListViewScreen widget.
+*/
 class ListViewItem {
   ListViewItem({required this.title, required this.imagePath, required this.isListView, required this.link});
   String title;

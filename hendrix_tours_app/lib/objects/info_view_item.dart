@@ -1,4 +1,7 @@
 
+/*
+This class contains all the data to be given to the InfoViewScreen widget.
+*/
 class InfoViewItem {
   InfoViewItem({required this.title,
   required this.description,
