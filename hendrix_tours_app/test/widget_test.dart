@@ -11,20 +11,25 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:hendrix_tours_app/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+
+testWidgets('Navigating between different pages', (WidgetTester tester) async {
+    await tester.binding.setSurfaceSize(const Size(1080, 2340));
+
     await tester.pumpWidget(const MyApp());
+    expect(find.text('Hendrix Tours'), findsOneWidget);
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    await tester.tap(find.text('Food and Housing'));
+    await tester.pumpAndSettle();
+    expect(find.text('The Caf'), findsOneWidget);
+    
+    await tester.tap(find.text('Back to Home'));
+    await tester.pumpAndSettle();
+    expect(find.text('Food and Housing'), findsOneWidget);
   });
+
+  // testWidgets('Navigation test 2 RENAME', callback)
+
+  // testWidgets('External link test 1', callback)
+
+  // testWidgets('Test for web based API feature', callback)
 }
