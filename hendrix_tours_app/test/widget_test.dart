@@ -12,7 +12,7 @@ import 'package:hendrix_tours_app/main.dart';
 
 void main() {
 
-testWidgets('Navigating between different pages', (WidgetTester tester) async {
+  testWidgets('Navigating between different pages', (WidgetTester tester) async {
     await tester.binding.setSurfaceSize(const Size(1080, 2340));
 
     await tester.pumpWidget(const MyApp());
@@ -27,7 +27,18 @@ testWidgets('Navigating between different pages', (WidgetTester tester) async {
     expect(find.text('Food and Housing'), findsOneWidget);
   });
 
-  // testWidgets('Navigation test 2 RENAME', callback)
+  testWidgets('Back to Home works from all pages', (WidgetTester tester) async {
+    await tester.binding.setSurfaceSize(const Size(1080, 2340));
+    await tester.pumpWidget(const MyApp());
+
+    for (final page in ['Food and Housing', 'Athletics', 'Student Life']) {
+      await tester.tap(find.text(page));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Back to Home'));  
+      await tester.pumpAndSettle();
+      expect(find.text('Academics'), findsOneWidget);
+    }
+  });
 
   // testWidgets('External link test 1', callback)
 
