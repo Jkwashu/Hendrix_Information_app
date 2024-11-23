@@ -1,4 +1,5 @@
 import 'package:hendrix_tours_app/objects/widget_item.dart';
+import 'package:flutter/material.dart';
 
 /*
 This class contains the data and returns a widget of itself with buildWidget.
@@ -18,7 +19,7 @@ class ListViewItem implements WidgetItem {
   }
 
   @override
-  void buildWidget() {
+  Widget getWidget(context) {
     
   }
 }
