@@ -68,18 +68,8 @@ class HomePage extends StatelessWidget {
                 
 
                 const SizedBox(height: 24), // Spacing after the box
-                
-                InfoViewItem(
-                  title: "Big Tester <heavy southern drawl>",
-                  description: "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test ",
-                  imagePath: "nothin for now",
-                  connBuildings: [InfoViewItem(title: "Tester 2", description: "", imagePath: "", connBuildings: [], connDepartments: [], link: "")],
-                  connDepartments: [InfoViewItem(title: "Tester 3", description: "", imagePath: "", connBuildings: [], connDepartments: [], link: "")],
-                  link: "nothin for now",
-                ).getWidget(context),
 
                 // Button for Academics
-                /*
                 SizedBox(
                   width: double.infinity,
                   height: 60,
@@ -180,7 +170,6 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                */
               ],
             ),
           ),
