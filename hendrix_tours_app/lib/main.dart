@@ -6,6 +6,8 @@ import 'package:hendrix_tours_app/screens/student_life_page.dart';
 import 'package:hendrix_tours_app/screens/food_housing.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'objects/info_view_item.dart';
+
 Color hendrixOrange = const Color.fromRGBO(245, 130, 42, 1);
 final Uri _url = Uri.parse('https://www.hendrix.edu/visit/');
 
@@ -19,6 +21,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
       title: 'Flutter Demo',
       theme: hendrixTodayLightMode,
@@ -39,136 +42,140 @@ class HomePage extends StatelessWidget {
         iconTheme: const IconThemeData(color: Colors.white), 
         // automaticallyImplyLeading: false,
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              // Temporary Container for the map
-              Container(
-                width: double.infinity,
-                height: 200, // Adjust height as needed
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(8),                
+
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                // Temporary Container for the map
+                Container(
+                  width: double.infinity,
+                  height: 200, // Adjust height as needed
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(8),                
+                  ),
+                  child: Center(
+                    child: Text(
+                    'MAP',
+                    style: Theme.of(context).textTheme.headlineLarge,
+                )
+                )
                 ),
-                child: Center(
-                  child: Text(
-                  'MAP',
-                  style: Theme.of(context).textTheme.headlineLarge,
-              )
-              )
-              ),
-              
-              
+                
+                
 
-              const SizedBox(height: 24), // Spacing after the box
+                const SizedBox(height: 24), // Spacing after the box
 
-              // Button for Academics
-              SizedBox(
-                width: double.infinity,
-                height: 60,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const AcademicsPage()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: hendrixOrange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                // Button for Academics
+                SizedBox(
+                  width: double.infinity,
+                  height: 60,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AcademicsPage()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: hendrixOrange,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: Text(
+                      'Academics',
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
-                  child: Text(
-                    'Academics',
-                    style: Theme.of(context).textTheme.displaySmall,
-                  ),
                 ),
-              ),
 
-              const SizedBox(height: 16), // Spacing between buttons
+                const SizedBox(height: 16), // Spacing between buttons
 
-              // Button for Athletics
-              SizedBox(
-                width: double.infinity,
-                height: 60,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const AthleticsPage()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: hendrixOrange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                // Button for Athletics
+                SizedBox(
+                  width: double.infinity,
+                  height: 60,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AthleticsPage()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: hendrixOrange,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: Text(
+                      'Athletics',
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
-                  child: Text(
-                    'Athletics',
-                    style: Theme.of(context).textTheme.displaySmall,
-                  ),
                 ),
-              ),
 
-              const SizedBox(height: 16), // Spacing between buttons
+                const SizedBox(height: 16), // Spacing between buttons
 
-              // Button for Food and Housing
-              SizedBox(
-                width: double.infinity,
-                height: 60,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const FoodHousingPage()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: hendrixOrange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                // Button for Food and Housing
+                SizedBox(
+                  width: double.infinity,
+                  height: 60,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const FoodHousingPage()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: hendrixOrange,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: Text(
+                      'Food and Housing',
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
-                  child: Text(
-                    'Food and Housing',
-                    style: Theme.of(context).textTheme.displaySmall,
-                  ),
                 ),
-              ),
 
-              const SizedBox(height: 16), // Spacing between buttons
+                const SizedBox(height: 16), // Spacing between buttons
 
-              // Button for Student Life
-              SizedBox(
-                width: double.infinity,
-                height: 60,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const StudentLifePage()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: hendrixOrange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                // Button for Student Life
+                SizedBox(
+                  width: double.infinity,
+                  height: 60,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const StudentLifePage()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: hendrixOrange,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: Text(
+                      'Student Life',
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
-                  child: Text(
-                    'Student Life',
-                    style: Theme.of(context).textTheme.displaySmall,
-                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
+
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
