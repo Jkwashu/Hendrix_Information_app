@@ -86,6 +86,7 @@ flutter:
       - lib/assets/studentlife.jpg
       - lib/assets/profile.jpg
       - lib/assets/campus.jpg
+      - lib/assets/Logo.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

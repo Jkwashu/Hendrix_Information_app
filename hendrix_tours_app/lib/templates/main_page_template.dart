@@ -91,9 +91,14 @@ class MainPageTemplate extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Hendrix Tours',
-                    style: Theme.of(context).textTheme.displayLarge,
+                  // Text(
+                  //   'Hendrix Tours',
+                  //   style: Theme.of(context).textTheme.displayLarge,
+                  // ),
+                  Image.asset(
+                    'lib/assets/Logo.png',
+                    height: 40,
+                    fit: BoxFit.contain,
                   ),
                   const SizedBox(height: 4),
                   Text(
