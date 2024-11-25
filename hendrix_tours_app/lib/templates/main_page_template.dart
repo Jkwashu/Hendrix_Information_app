@@ -49,8 +49,8 @@ class HendrixButton extends StatelessWidget {
 class MainPageTemplate extends StatelessWidget {
   final String pageTitle;
   final bool hasImage;
-  final String? imagePath;
-  final String? videoPath; // New: Path for video playback
+  final String? imagePath; // Path for image display
+  final String? videoPath; // Path for video playback
   final WidgetItem contentWidget;
   final bool showBackButton;
 

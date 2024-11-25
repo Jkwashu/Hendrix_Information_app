@@ -1,6 +1,7 @@
 import 'widget_item.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:hendrix_tours_app/objects/video_player_widget.dart'; // Import the VideoPlayerWidget
 
 /*
 This class contains data for the InfoView screen and will return a widget displaying itself.
@@ -9,17 +10,19 @@ class InfoViewItem implements WidgetItem {
   InfoViewItem({
     required this.title,
     required this.description,
-    required this.imagePath,
+    this.imagePath,
+    this.videoPath,
     required this.connBuildings,
     required this.connDepartments,
     required this.link,
   });
+
   @override
   final String title;
 
   @override
-  final String imagePath;
-
+  final String? imagePath; // image path
+  final String? videoPath; // video path
   final String description;
   final List<InfoViewItem> connBuildings;
   final List<InfoViewItem> connDepartments;
@@ -32,11 +35,12 @@ class InfoViewItem implements WidgetItem {
     if (list.isNotEmpty) {
       for (InfoViewItem i in list) {
         connButtons.add(TextButton(
-            onPressed: null, // Change once main is working.
-            child: Text(
-              i.title,
-              style: Theme.of(context).textTheme.displaySmall,
-            )));
+          onPressed: null, // Change once navigation is implemented
+          child: Text(
+            i.title,
+            style: Theme.of(context).textTheme.displaySmall,
+          ),
+        ));
       }
 
       return connButtons;
@@ -53,7 +57,7 @@ class InfoViewItem implements WidgetItem {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Club Title
+            // Title
             Center(
               child: Text(
                 title,
@@ -62,6 +66,34 @@ class InfoViewItem implements WidgetItem {
             ),
 
             const SizedBox(height: 24),
+
+            // Display Video or Image
+            if (videoPath != null) ...[
+              Center(
+                child: Container(
+                  width: double.infinity,
+                  height: 200,
+                  child: VideoPlayerWidget(videoUrl: videoPath!), // Video displayed if videoPath exists
+                ),
+              ),
+              const SizedBox(height: 16),
+            ] else if (imagePath != null) ...[
+              Center(
+                child: Container(
+                  width: double.infinity,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(8),
+                    image: DecorationImage(
+                      image: AssetImage(imagePath!),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+            ],
 
             // Description
             Container(
@@ -111,7 +143,7 @@ class InfoViewItem implements WidgetItem {
                   const SizedBox(height: 8),
                   Column(
                     children: linkTextList(context, connBuildings),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -138,7 +170,7 @@ class InfoViewItem implements WidgetItem {
                   const SizedBox(height: 8),
                   Column(
                     children: linkTextList(context, connDepartments),
-                  )
+                  ),
                 ],
               ),
             ),

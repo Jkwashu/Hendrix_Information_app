@@ -292,7 +292,7 @@ class CustomHardinView extends StatelessWidget {
     final hardinContent = InfoViewItem(
       title: 'Hardin Hall',
       description: 'Hardin Hall is home to 143 men that live in 68 double-occupancy rooms and seven single rooms. This residence hall for men was constructed in 1964 and can accommodate 143 residents. The men of Hardin Hall are known as "The Men of Distinction" and enjoy the camaraderie of living in an all male environment.  The students of Hardin enjoy gathering in the lobby to play pool and watch TV as well as a healthy gaming community.',
-      imagePath: 'https://www.youtube.com/watch?v=mLc9ssniMMM&list=PLS-kGc7zCTl0EFvSzeHhGIvwu1Xb1xCJa&index=6',
+      videoPath: 'https://drive.google.com/uc?export=download&id=1KMvSR-THv4RVfYMjvyCbki_yRYYZdWWa',
       connBuildings: [],
       connDepartments: [],
       link: '',
