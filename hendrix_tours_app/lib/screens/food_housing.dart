@@ -3,27 +3,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 Color hendrixOrange = const Color.fromRGBO(245, 130, 42, 1);
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor:hendrixOrange),
-        useMaterial3: true,
-      ),
-      home: const FoodHousingPage(),
-    );
-  }
-}
-
 class FoodHousingPage extends StatelessWidget {
   const FoodHousingPage({Key? key}) : super(key: key);
 
