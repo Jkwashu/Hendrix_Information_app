@@ -32,7 +32,7 @@ class AcademicsPage extends StatelessWidget {
     );
 
     return MainPageTemplate(
-      title: 'Academics',
+      pageTitle: 'Academics',
       hasImage: true,
       imagePath: academicsContent.imagePath,
       contentWidget: academicsContent,

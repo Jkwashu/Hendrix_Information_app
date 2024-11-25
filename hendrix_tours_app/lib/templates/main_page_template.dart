@@ -5,16 +5,16 @@ import 'package:hendrix_tours_app/objects/widget_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MainPageTemplate extends StatelessWidget {
-  final String title;
-  final bool hasImage; // Determines if we show image or video container
-  final String? imagePath; // Optional path to image
-  final String? videoPath; // Optional path to video
-  final WidgetItem contentWidget; // Either InfoViewItem or ListViewItem
-  final bool showBackButton; // Whether to show the back button in bottom bar
+  final String pageTitle; // This will be the subtitle (e.g., "Academics")
+  final bool hasImage;
+  final String? imagePath;
+  final String? videoPath;
+  final WidgetItem contentWidget;
+  final bool showBackButton;
 
   const MainPageTemplate({
     Key? key,
-    required this.title,
+    required this.pageTitle,
     required this.hasImage,
     this.imagePath,
     this.videoPath,
@@ -25,7 +25,6 @@ class MainPageTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      // Handle back button press
       onWillPop: () async {
         if (Navigator.of(context).canPop()) {
           Navigator.of(context).pop();
@@ -34,10 +33,31 @@ class MainPageTemplate extends StatelessWidget {
         return true;
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(title, style: Theme.of(context).textTheme.displayLarge),
-          backgroundColor: const Color.fromRGBO(245, 130, 42, 1),
-          iconTheme: const IconThemeData(color: Colors.white),
+        appBar: PreferredSize(
+          preferredSize:
+              const Size.fromHeight(100), // Increased height for subtitle
+          child: AppBar(
+            backgroundColor: const Color.fromRGBO(245, 130, 42, 1),
+            iconTheme: const IconThemeData(color: Colors.white),
+            flexibleSpace: SafeArea(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Hendrix Tours',
+                    style: Theme.of(context).textTheme.displayLarge,
+                  ),
+                  const SizedBox(height: 4), // Space between title and subtitle
+                  Text(
+                    pageTitle,
+                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                          color: Colors.white,
+                        ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
         body: SafeArea(
           child: SingleChildScrollView(
