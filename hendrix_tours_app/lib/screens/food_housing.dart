@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hendrix_tours_app/templates/main_page_template.dart';
 import 'package:hendrix_tours_app/objects/list_view_item.dart';
 
+import '../objects/info_view_item.dart';
+
 class FoodHousingPage extends StatelessWidget {
   const FoodHousingPage({Key? key}) : super(key: key);
 
@@ -183,7 +185,10 @@ class CustomSouthView extends ListViewItem {
         HendrixButton(
           text: 'Hardin Hall',
           onPressed: () {
-            // Add navigation when page is created
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CustomHardinView()),
+            );
           },
         ),
         const SizedBox(height: 16),
@@ -275,6 +280,29 @@ class CustomAptView extends ListViewItem {
           },
         ),
       ],
+    );
+  }
+}
+
+class CustomHardinView extends StatelessWidget {
+  const CustomHardinView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final hardinContent = InfoViewItem(
+      title: 'Hardin Hall',
+      description: 'Hardin Hall is home to 143 men that live in 68 double-occupancy rooms and seven single rooms. This residence hall for men was constructed in 1964 and can accommodate 143 residents. The men of Hardin Hall are known as "The Men of Distinction" and enjoy the camaraderie of living in an all male environment.  The students of Hardin enjoy gathering in the lobby to play pool and watch TV as well as a healthy gaming community.',
+      imagePath: 'https://www.youtube.com/watch?v=mLc9ssniMMM&list=PLS-kGc7zCTl0EFvSzeHhGIvwu1Xb1xCJa&index=6',
+      connBuildings: [],
+      connDepartments: [],
+      link: '',
+    );
+
+    return MainPageTemplate(
+      pageTitle: hardinContent.title,
+      hasImage: false,
+      imagePath: hardinContent.imagePath,
+      contentWidget: hardinContent,
     );
   }
 }
