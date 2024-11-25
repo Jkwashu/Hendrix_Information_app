@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
     return MainPageTemplate(
       pageTitle: 'Welcome',
       hasImage: true,
-      imagePath: 'assets/images/campus.jpg',
+      imagePath: 'lib/assets/campus.jpg',
       contentWidget: CustomHomeListView(),
       showBackButton: false,
     );

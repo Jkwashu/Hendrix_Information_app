@@ -11,7 +11,7 @@ class StudentLifePage extends StatelessWidget {
     return MainPageTemplate(
       pageTitle: 'Student Life',
       hasImage: true,
-      imagePath: 'assets/images/student-life.jpg',
+      imagePath: 'lib/assets/studentlife.jpg',
       contentWidget: CustomStudentLifeView(),
     );
   }
@@ -22,7 +22,7 @@ class CustomStudentLifeView extends ListViewItem {
       : super(
           title: 'Student Life',
           child: const [],
-          imagePath: '',
+          imagePath: 'lib/assets/studentlife.jpg',
           isListView: true,
           link: '',
         );
@@ -63,7 +63,7 @@ class ClubsPage extends StatelessWidget {
     return MainPageTemplate(
       pageTitle: 'Clubs',
       hasImage: true,
-      imagePath: 'assets/images/clubs.jpg',
+      imagePath: 'lib/assets/clubs.jpg',
       contentWidget: CustomClubsView(),
     );
   }
@@ -74,7 +74,7 @@ class CustomClubsView extends ListViewItem {
       : super(
           title: 'Clubs',
           child: const [],
-          imagePath: '',
+          imagePath: 'lib/assets/clubs.jpg',
           isListView: true,
           link: '',
         );
@@ -133,7 +133,7 @@ class AnnualEventsPage extends StatelessWidget {
     return MainPageTemplate(
       pageTitle: 'Annual Events',
       hasImage: true,
-      imagePath: 'assets/images/events.jpg',
+      imagePath: 'lib/assets/events.jpg',
       contentWidget: CustomEventsView(),
     );
   }
@@ -145,7 +145,7 @@ class CustomEventsView extends ListViewItem {
       : super(
           title: 'Annual Events',
           child: [],
-          imagePath: 'assets/images/events.jpg',
+          imagePath: 'lib/assets/events.jpg',
           isListView: true,
           link: '',
         );
@@ -187,7 +187,7 @@ class ProfileClubPage extends StatelessWidget {
     final profileContent = InfoViewItem(
       title: 'The Profile',
       description: 'The official student-run news source of Hendrix College',
-      imagePath: 'assets/images/profile.jpg',
+      imagePath: 'lib/assets/profile.jpg',
       connBuildings: [],
       connDepartments: [],
       link: '',

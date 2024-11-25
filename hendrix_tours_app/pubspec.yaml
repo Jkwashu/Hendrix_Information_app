@@ -68,6 +68,24 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+  assets:
+      - lib/assets/foodandhousing.jpg
+      - lib/assets/academics.jpg
+      - lib/assets/apartments.jpg
+      - lib/assets/athletics.jpg
+      - lib/assets/burrow.png
+      - lib/assets/caf.jpg
+      - lib/assets/clubs.jpg
+      - lib/assets/departments.jpg
+      - lib/assets/events.jpg
+      - lib/assets/majors.jpg
+      - lib/assets/northside.jpg
+      - lib/assets/res_life.jpg
+      - lib/assets/southside.jpg
+      - lib/assets/studentlife.jpg
+      - lib/assets/profile.jpg
+      - lib/assets/campus.jpg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
