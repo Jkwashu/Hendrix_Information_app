@@ -31,8 +31,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MainPageTemplate(
       pageTitle: 'Welcome',
-      hasImage: true,
-      imagePath: 'assets/images/campus.jpg',
+      hasImage: false,
+      // Hendrix Tours Video Path:
+      // videoPath: 'https://drive.google.com/uc?export=download&id=1DIb09B9lxjHeLjcpLOxRj-b0CEOADmWX',
+      // Funny Video Path:
+      videoPath: 'https://drive.google.com/uc?export=download&id=1QpEP4rnBEqwu-zaHSSwVfrU-hInBe5DG',
+
       contentWidget: CustomHomeListView(),
       showBackButton: false,
     );

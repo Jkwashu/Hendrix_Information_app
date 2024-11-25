@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hendrix_tours_app/objects/info_view_item.dart';
 import 'package:hendrix_tours_app/objects/list_view_item.dart';
 import 'package:hendrix_tours_app/objects/widget_item.dart';
+import 'package:hendrix_tours_app/objects/video_player_widget.dart'; // Import the VideoPlayerWidget
 import 'package:url_launcher/url_launcher.dart';
 
 // Standard button style to be used across all pages
@@ -49,7 +50,7 @@ class MainPageTemplate extends StatelessWidget {
   final String pageTitle;
   final bool hasImage;
   final String? imagePath;
-  final String? videoPath;
+  final String? videoPath; // New: Path for video playback
   final WidgetItem contentWidget;
   final bool showBackButton;
 
@@ -110,7 +111,17 @@ class MainPageTemplate extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                if (hasImage) ...[
+                if (videoPath != null) ...[
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 200,
+                      child: VideoPlayerWidget(videoUrl: videoPath!), // Play video if a path is provided
+                    ),
+                  ),
+                ],
+                if (hasImage && videoPath == null) ...[
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Container(
