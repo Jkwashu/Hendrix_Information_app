@@ -10,7 +10,7 @@ class AthleticsPage extends StatelessWidget {
     return MainPageTemplate(
       pageTitle: 'Athletics',
       hasImage: true,
-      imagePath: 'assets/images/athletics.jpg',
+      imagePath: 'lib/assets/athletics.jpg',
       contentWidget: CustomAthleticsView(),
     );
   }
@@ -21,7 +21,7 @@ class CustomAthleticsView extends ListViewItem {
       : super(
           title: 'Athletics',
           child: const [],
-          imagePath: '',
+          imagePath: 'lib/assets/athletics.jpg',
           isListView: true,
           link: '',
         );

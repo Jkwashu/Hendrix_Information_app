@@ -10,7 +10,7 @@ class AcademicsPage extends StatelessWidget {
     return MainPageTemplate(
       pageTitle: 'Academics',
       hasImage: true,
-      imagePath: 'assets/images/academics.jpg',
+      imagePath: 'lib/assets/academics.jpg',
       contentWidget: CustomAcademicsView(),
     );
   }
@@ -21,7 +21,7 @@ class CustomAcademicsView extends ListViewItem {
       : super(
           title: 'Academics',
           child: [],
-          imagePath: '',
+          imagePath: 'lib/assets/academics.jpg',
           isListView: true,
           link: '',
         );

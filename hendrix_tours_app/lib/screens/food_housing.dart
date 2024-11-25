@@ -10,7 +10,7 @@ class FoodHousingPage extends StatelessWidget {
     return MainPageTemplate(
       pageTitle: 'Food and Housing',
       hasImage: true,
-      imagePath: 'assets/images/housing.jpg',
+      imagePath: 'lib/assets/foodandhousing.jpg',
       contentWidget: CustomFoodHousingView(),
     );
   }
@@ -21,7 +21,7 @@ class CustomFoodHousingView extends ListViewItem {
       : super(
           title: 'Food and Housing',
           child: const [],
-          imagePath: '',
+          imagePath: 'lib/assets/foodandhousing.jpg',
           isListView: true,
           link: '',
         );
