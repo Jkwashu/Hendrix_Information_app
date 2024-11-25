@@ -7,13 +7,21 @@ Color hendrixOrange = const Color.fromRGBO(245, 130, 42, 1);
 This class contains the data and returns a widget of itself with buildWidget.
 */
 class ListViewItem implements WidgetItem {
-  ListViewItem({required this.title, required this.child, required this.imagePath, required this.isListView, required this.link});
-  String title;
-  //child - use an interface so either ListViewItem or InfoViewItem can be called as children
-  List<WidgetItem> child;
-  String imagePath;
-  bool isListView;
-  String link;
+  ListViewItem({
+    required this.title,
+    required this.child,
+    required this.imagePath,
+    required this.isListView,
+    required this.link,
+  });
+
+  @override
+  final String title;
+  final List<WidgetItem> child;
+  @override
+  final String imagePath;
+  final bool isListView;
+  final String link;
 
   @override
   String toString() {
@@ -22,10 +30,9 @@ class ListViewItem implements WidgetItem {
 
   @override
   Widget getWidget(context) {
-
     List<Widget> listViewList = [];
 
-    for(WidgetItem i in child) {
+    for (WidgetItem i in child) {
       listViewList.add(
         SizedBox(
           width: double.infinity,

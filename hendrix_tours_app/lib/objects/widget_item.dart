@@ -5,6 +5,7 @@ This is an abstract class or interface for InfoViewItem and ListViewItem.
 */
 
 abstract class WidgetItem {
-  abstract String title;
-  Widget getWidget(context);
+  String get title;
+  String get imagePath;
+  Widget getWidget(BuildContext context);
 }
