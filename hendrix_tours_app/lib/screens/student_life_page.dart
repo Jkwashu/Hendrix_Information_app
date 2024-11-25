@@ -197,6 +197,7 @@ class ProfileClubPage extends StatelessWidget {
       pageTitle: 'The Profile',
       hasImage: true,
       imagePath: profileContent.imagePath,
+      videoPath: null,
       contentWidget: profileContent,
     );
   }

@@ -6,6 +6,9 @@ import 'package:hendrix_tours_app/objects/video_player_widget.dart'; // Import t
 /*
 This class contains data for the InfoView screen and will return a widget displaying itself.
 */
+
+// TODO: Add String videopath and bool hasVideo
+
 class InfoViewItem implements WidgetItem {
   InfoViewItem({
     required this.title,
@@ -58,12 +61,12 @@ class InfoViewItem implements WidgetItem {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Title
-            Center(
+            /*Center(
               child: Text(
                 title,
                 style: Theme.of(context).textTheme.displaySmall,
               ),
-            ),
+            ),*/
 
             const SizedBox(height: 24),
 
@@ -77,7 +80,7 @@ class InfoViewItem implements WidgetItem {
                 ),
               ),
               const SizedBox(height: 16),
-            ] else if (imagePath != null) ...[
+            ], /*else if (imagePath != null) ...[
               Center(
                 child: Container(
                   width: double.infinity,
@@ -93,7 +96,7 @@ class InfoViewItem implements WidgetItem {
                 ),
               ),
               const SizedBox(height: 16),
-            ],
+            ],*/
 
             // Description
             Container(

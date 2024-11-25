@@ -6,6 +6,9 @@ Color hendrixOrange = const Color.fromRGBO(245, 130, 42, 1);
 /*
 This class contains the data and returns a widget of itself with buildWidget.
 */
+
+// TODO add String videoPath and bool hasVideo
+
 class ListViewItem implements WidgetItem {
   ListViewItem({
     required this.title,
