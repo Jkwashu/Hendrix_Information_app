@@ -7,35 +7,43 @@ class AcademicsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Create the ListView content
-    final academicsContent = ListViewItem(
-      title: 'Academics',
-      child: [
-        ListViewItem(
-          title: 'Majors',
-          child: [],
-          imagePath: '',
-          isListView: true,
-          link: '',
-        ),
-        ListViewItem(
-          title: 'Departments',
-          child: [],
-          imagePath: '',
-          isListView: true,
-          link: '',
-        ),
-      ],
-      imagePath: 'assets/images/academics.jpg', // Add your image path
-      isListView: true,
-      link: '',
-    );
-
     return MainPageTemplate(
       pageTitle: 'Academics',
       hasImage: true,
-      imagePath: academicsContent.imagePath,
-      contentWidget: academicsContent,
+      imagePath: 'assets/images/academics.jpg',
+      contentWidget: CustomAcademicsView(),
+    );
+  }
+}
+
+class CustomAcademicsView extends ListViewItem {
+  CustomAcademicsView()
+      : super(
+          title: 'Academics',
+          child: [],
+          imagePath: '',
+          isListView: true,
+          link: '',
+        );
+
+  @override
+  Widget getWidget(BuildContext context) {
+    return Column(
+      children: [
+        HendrixButton(
+          text: 'Majors',
+          onPressed: () {
+            // Add navigation when page is created
+          },
+        ),
+        const SizedBox(height: 16),
+        HendrixButton(
+          text: 'Departments',
+          onPressed: () {
+            // Add navigation when page is created
+          },
+        ),
+      ],
     );
   }
 }

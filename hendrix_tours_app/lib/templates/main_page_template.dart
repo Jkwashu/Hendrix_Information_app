@@ -4,8 +4,49 @@ import 'package:hendrix_tours_app/objects/list_view_item.dart';
 import 'package:hendrix_tours_app/objects/widget_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// Standard button style to be used across all pages
+class HendrixButtonStyle {
+  static ButtonStyle get standard => ElevatedButton.styleFrom(
+        backgroundColor: const Color.fromRGBO(245, 130, 42, 1),
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      );
+}
+
+// Standard button widget to ensure consistency
+class HendrixButton extends StatelessWidget {
+  final String text;
+  final VoidCallback? onPressed;
+
+  const HendrixButton({
+    Key? key,
+    required this.text,
+    this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: 60,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: HendrixButtonStyle.standard,
+        child: Text(
+          text,
+          style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                color: Colors.black,
+              ),
+        ),
+      ),
+    );
+  }
+}
+
 class MainPageTemplate extends StatelessWidget {
-  final String pageTitle; // This will be the subtitle (e.g., "Academics")
+  final String pageTitle;
   final bool hasImage;
   final String? imagePath;
   final String? videoPath;
@@ -22,6 +63,13 @@ class MainPageTemplate extends StatelessWidget {
     this.showBackButton = true,
   }) : super(key: key);
 
+  Future<void> _launchUrl() async {
+    final Uri url = Uri.parse('https://www.hendrix.edu/visit/');
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -34,8 +82,7 @@ class MainPageTemplate extends StatelessWidget {
       },
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize:
-              const Size.fromHeight(100), // Increased height for subtitle
+          preferredSize: const Size.fromHeight(100),
           child: AppBar(
             backgroundColor: const Color.fromRGBO(245, 130, 42, 1),
             iconTheme: const IconThemeData(color: Colors.white),
@@ -47,7 +94,7 @@ class MainPageTemplate extends StatelessWidget {
                     'Hendrix Tours',
                     style: Theme.of(context).textTheme.displayLarge,
                   ),
-                  const SizedBox(height: 4), // Space between title and subtitle
+                  const SizedBox(height: 4),
                   Text(
                     pageTitle,
                     style: Theme.of(context).textTheme.displaySmall?.copyWith(
@@ -63,7 +110,6 @@ class MainPageTemplate extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                // Media Container
                 if (hasImage) ...[
                   Padding(
                     padding: const EdgeInsets.all(16.0),
@@ -86,8 +132,6 @@ class MainPageTemplate extends StatelessWidget {
                     ),
                   ),
                 ],
-
-                // Content Widget (InfoView or ListView)
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: contentWidget.getWidget(context),
@@ -127,14 +171,7 @@ class MainPageTemplate extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromRGBO(245, 130, 42, 1),
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
+                      style: HendrixButtonStyle.standard,
                     ),
                   ),
                 ),
@@ -143,9 +180,7 @@ class MainPageTemplate extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(left: showBackButton ? 8.0 : 0),
                   child: ElevatedButton.icon(
-                    onPressed: () {
-                      _launchUrl();
-                    },
+                    onPressed: _launchUrl,
                     icon: const Icon(Icons.calendar_today),
                     label: const Text(
                       'Plan a Visit',
@@ -153,14 +188,7 @@ class MainPageTemplate extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(245, 130, 42, 1),
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
+                    style: HendrixButtonStyle.standard,
                   ),
                 ),
               ),
@@ -169,13 +197,5 @@ class MainPageTemplate extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-final Uri _url = Uri.parse('https://www.hendrix.edu/visit/');
-
-Future<void> _launchUrl() async {
-  if (!await launchUrl(_url)) {
-    throw Exception('Could not launch $_url');
   }
 }
