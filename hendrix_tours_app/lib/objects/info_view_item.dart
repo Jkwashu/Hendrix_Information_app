@@ -32,6 +32,7 @@ class InfoViewItem implements WidgetItem {
   final String description;
   final List<InfoViewItem> connBuildings;
   final List<InfoViewItem> connDepartments;
+  @override
   final String link;
 
   // Returns a list of TextButton objects that will connect to their associated InfoViewPage.

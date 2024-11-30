@@ -9,5 +9,6 @@ abstract class WidgetItem {
   bool get hasImage;
   String? get imagePath;
   String? get videoPath;
+  String get link;
   Widget getWidget(BuildContext context);
 }

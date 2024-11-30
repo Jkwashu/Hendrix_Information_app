@@ -77,9 +77,19 @@ class MainPageTemplateState extends State<MainPageTemplate> {
   String? videoPath; // Path for video playback
   WidgetItem? contentWidget;
   bool showBackButton = false;
+  String link = '';
+  String visitLink = 'https://www.hendrix.edu/visit/';
 
+  // Launches the visit url
   Future<void> _launchUrl() async {
-    final Uri url = Uri.parse('https://www.hendrix.edu/visit/');
+    final Uri url = Uri.parse(visitLink);
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+  // Launches the url associated with the page
+  Future<void> _launchConUrl() async {
+    final Uri url = Uri.parse(link);
     if (!await launchUrl(url)) {
       throw Exception('Could not launch $url');
     }
@@ -92,6 +102,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
     hasImage = contentWidget!.hasImage;
     imagePath = contentWidget!.imagePath;
     videoPath = contentWidget!.videoPath;
+    link = contentWidget!.link;
     super.initState();
   }
 
@@ -111,6 +122,12 @@ class MainPageTemplateState extends State<MainPageTemplate> {
           child: AppBar(
             backgroundColor: const Color.fromRGBO(245, 130, 42, 1),
             iconTheme: const IconThemeData(color: Colors.white),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.link),
+                onPressed: _launchConUrl,
+              ),
+            ],
             flexibleSpace: SafeArea(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

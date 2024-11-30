@@ -30,6 +30,7 @@ class ListViewItem implements WidgetItem {
   @override
   final String? videoPath;
   final bool isListView;
+  @override
   final String link;
 
   @override
