@@ -13,7 +13,9 @@ class ListViewItem implements WidgetItem {
   ListViewItem({
     required this.title,
     required this.child,
-    required this.imagePath,
+    required this.hasImage,
+    this.imagePath,
+    this.videoPath,
     required this.isListView,
     required this.link,
   });
@@ -22,7 +24,11 @@ class ListViewItem implements WidgetItem {
   final String title;
   final List<WidgetItem> child;
   @override
-  final String imagePath;
+  final bool hasImage;
+  @override
+  final String? imagePath;
+  @override
+  final String? videoPath;
   final bool isListView;
   final String link;
 

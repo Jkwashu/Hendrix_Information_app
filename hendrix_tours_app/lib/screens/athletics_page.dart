@@ -8,9 +8,9 @@ class AthleticsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainPageTemplate(
-      pageTitle: 'Athletics',
-      hasImage: true,
-      imagePath: 'lib/assets/athletics.jpg',
+      // pageTitle: 'Athletics',
+      // hasImage: true,
+      // imagePath: 'lib/assets/athletics.jpg',
       contentWidget: CustomAthleticsView(),
     );
   }
@@ -21,6 +21,7 @@ class CustomAthleticsView extends ListViewItem {
       : super(
           title: 'Athletics',
           child: const [],
+          hasImage: true,
           imagePath: 'lib/assets/athletics.jpg',
           isListView: true,
           link: '',

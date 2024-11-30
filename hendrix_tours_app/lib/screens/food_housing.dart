@@ -10,9 +10,9 @@ class FoodHousingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainPageTemplate(
-      pageTitle: 'Food and Housing',
-      hasImage: true,
-      imagePath: 'lib/assets/foodandhousing.jpg',
+      // pageTitle: 'Food and Housing',
+      // hasImage: true,
+      // imagePath: 'lib/assets/foodandhousing.jpg',
       contentWidget: CustomFoodHousingView(),
     );
   }
@@ -23,6 +23,7 @@ class CustomFoodHousingView extends ListViewItem {
       : super(
           title: 'Food and Housing',
           child: const [],
+          hasImage: true,
           imagePath: 'lib/assets/foodandhousing.jpg',
           isListView: true,
           link: '',
@@ -93,9 +94,9 @@ class NorthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainPageTemplate(
-      pageTitle: 'Northside Dorms',
-      hasImage: true,
-      imagePath: 'lib/assets/northside.jpg',
+      // pageTitle: 'Northside Dorms',
+      // hasImage: true,
+      // imagePath: 'lib/assets/northside.jpg',
       contentWidget: CustomNorthView(),
     );
   }
@@ -106,6 +107,7 @@ class CustomNorthView extends ListViewItem {
       : super(
           title: 'Northside Dorms',
           child: const [],
+          hasImage: true,
           imagePath: 'lib/assets/northside.jpg',
           isListView: true,
           link: '',
@@ -153,9 +155,9 @@ class SouthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainPageTemplate(
-      pageTitle: 'Southside Dorms',
-      hasImage: true,
-      imagePath: 'lib/assets/southside.jpg',
+      // pageTitle: 'Southside Dorms',
+      // hasImage: true,
+      // imagePath: 'lib/assets/southside.jpg',
       contentWidget: CustomSouthView(),
     );
   }
@@ -166,6 +168,7 @@ class CustomSouthView extends ListViewItem {
       : super(
           title: 'Southside Dorms',
           child: const [],
+          hasImage: true,
           imagePath: 'lib/assets/southside.jpg',
           isListView: true,
           link: '',
@@ -216,9 +219,9 @@ class AptPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainPageTemplate(
-      pageTitle: 'Apartments',
-      hasImage: true,
-      imagePath: 'lib/assets/apartments.jpg',
+      // pageTitle: 'Apartments',
+      // hasImage: true,
+      // imagePath: 'lib/assets/apartments.jpg',
       contentWidget: CustomAptView(),
     );
   }
@@ -229,6 +232,7 @@ class CustomAptView extends ListViewItem {
       : super(
           title: 'Apartments',
           child: const [],
+          hasImage: true,
           imagePath: 'lib/assets/apartments.jpg',
           isListView: true,
           link: '',
@@ -292,6 +296,7 @@ class CustomHardinView extends StatelessWidget {
     final hardinContent = InfoViewItem(
       title: 'Hardin Hall',
       description: 'Hardin Hall is home to 143 men that live in 68 double-occupancy rooms and seven single rooms. This residence hall for men was constructed in 1964 and can accommodate 143 residents. The men of Hardin Hall are known as "The Men of Distinction" and enjoy the camaraderie of living in an all male environment.  The students of Hardin enjoy gathering in the lobby to play pool and watch TV as well as a healthy gaming community.',
+      hasImage: false,
       videoPath: 'https://drive.google.com/uc?export=download&id=1KMvSR-THv4RVfYMjvyCbki_yRYYZdWWa',
       connBuildings: [],
       connDepartments: [],
@@ -299,9 +304,9 @@ class CustomHardinView extends StatelessWidget {
     );
 
     return MainPageTemplate(
-      pageTitle: hardinContent.title,
-      hasImage: false,
-      imagePath: hardinContent.imagePath,
+      // pageTitle: hardinContent.title,
+      // hasImage: false,
+      // imagePath: hardinContent.imagePath,
       contentWidget: hardinContent,
     );
   }

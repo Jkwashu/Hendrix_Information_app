@@ -22,10 +22,10 @@ class HendrixButton extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const HendrixButton({
-    Key? key,
+    super.key,
     required this.text,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,29 +46,53 @@ class HendrixButton extends StatelessWidget {
   }
 }
 
-class MainPageTemplate extends StatelessWidget {
-  final String pageTitle;
-  final bool hasImage;
-  final String? imagePath; // Path for image display
-  final String? videoPath; // Path for video playback
+class MainPageTemplate extends StatefulWidget {
+  //final String pageTitle;
+  //final bool hasImage;
+  //final String? imagePath; // Path for image display
+  //final String? videoPath; // Path for video playback
   final WidgetItem contentWidget;
   final bool showBackButton;
 
   const MainPageTemplate({
-    Key? key,
-    required this.pageTitle,
-    required this.hasImage,
-    this.imagePath,
-    this.videoPath,
+    super.key,
+    //required this.pageTitle,
+    //required this.hasImage,
+    //this.imagePath,
+    //this.videoPath,
     required this.contentWidget,
     this.showBackButton = true,
-  }) : super(key: key);
+  });
+
+  
+
+  @override
+  State<StatefulWidget> createState() => MainPageTemplateState();
+}
+
+class MainPageTemplateState extends State<MainPageTemplate> {
+  String pageTitle = '';
+  bool hasImage = false;
+  String? imagePath; // Path for image display
+  String? videoPath; // Path for video playback
+  WidgetItem? contentWidget;
+  bool showBackButton = false;
 
   Future<void> _launchUrl() async {
     final Uri url = Uri.parse('https://www.hendrix.edu/visit/');
     if (!await launchUrl(url)) {
       throw Exception('Could not launch $url');
     }
+  }
+
+  @override
+  void initState() {
+    contentWidget = widget.contentWidget;
+    pageTitle = contentWidget!.title;
+    hasImage = contentWidget!.hasImage;
+    imagePath = contentWidget!.imagePath;
+    videoPath = contentWidget!.videoPath;
+    super.initState();
   }
 
   @override
@@ -150,7 +174,7 @@ class MainPageTemplate extends StatelessWidget {
                 ],
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: contentWidget.getWidget(context),
+                  child: contentWidget!.getWidget(context),
                 ),
               ],
             ),

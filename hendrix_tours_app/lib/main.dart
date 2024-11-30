@@ -30,10 +30,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainPageTemplate(
-      pageTitle: 'Welcome',
-      hasImage: false,
+      //pageTitle: 'Welcome',
+      //hasImage: false,
       // Hendrix Tours Video Path:
-      videoPath: 'https://drive.google.com/uc?export=download&id=1DIb09B9lxjHeLjcpLOxRj-b0CEOADmWX',
+      //videoPath: 'https://drive.google.com/uc?export=download&id=1DIb09B9lxjHeLjcpLOxRj-b0CEOADmWX',
       // Funny Video Path:
       //videoPath: 'https://drive.google.com/uc?export=download&id=1QpEP4rnBEqwu-zaHSSwVfrU-hInBe5DG',
 
@@ -48,7 +48,8 @@ class CustomHomeListView extends ListViewItem {
       : super(
           title: 'Home',
           child: const [],
-          imagePath: '',
+          hasImage: false,
+          videoPath: 'https://drive.google.com/uc?export=download&id=1DIb09B9lxjHeLjcpLOxRj-b0CEOADmWX',
           isListView: true,
           link: '',
         );

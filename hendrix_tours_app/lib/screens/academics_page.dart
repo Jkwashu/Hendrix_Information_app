@@ -8,9 +8,9 @@ class AcademicsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainPageTemplate(
-      pageTitle: 'Academics',
-      hasImage: true,
-      imagePath: 'lib/assets/academics.jpg',
+      // pageTitle: 'Academics',
+      // hasImage: true,
+      // imagePath: 'lib/assets/academics.jpg',
       contentWidget: CustomAcademicsView(),
     );
   }
@@ -21,6 +21,7 @@ class CustomAcademicsView extends ListViewItem {
       : super(
           title: 'Academics',
           child: [],
+          hasImage: true,
           imagePath: 'lib/assets/academics.jpg',
           isListView: true,
           link: '',

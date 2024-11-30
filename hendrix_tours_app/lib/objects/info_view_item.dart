@@ -13,6 +13,7 @@ class InfoViewItem implements WidgetItem {
   InfoViewItem({
     required this.title,
     required this.description,
+    required this.hasImage,
     this.imagePath,
     this.videoPath,
     required this.connBuildings,
@@ -22,9 +23,11 @@ class InfoViewItem implements WidgetItem {
 
   @override
   final String title;
-
+  @override
+  final bool hasImage;
   @override
   final String? imagePath; // image path
+  @override
   final String? videoPath; // video path
   final String description;
   final List<InfoViewItem> connBuildings;
@@ -68,35 +71,7 @@ class InfoViewItem implements WidgetItem {
               ),
             ),*/
 
-            const SizedBox(height: 24),
-
-            // Display Video or Image
-            if (videoPath != null) ...[
-              Center(
-                child: Container(
-                  width: double.infinity,
-                  height: 200,
-                  child: VideoPlayerWidget(videoUrl: videoPath!), // Video displayed if videoPath exists
-                ),
-              ),
-              const SizedBox(height: 16),
-            ], /*else if (imagePath != null) ...[
-              Center(
-                child: Container(
-                  width: double.infinity,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(8),
-                    image: DecorationImage(
-                      image: AssetImage(imagePath!),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-            ],*/
+            const SizedBox(height: 16),
 
             // Description
             Container(
