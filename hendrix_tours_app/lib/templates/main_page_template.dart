@@ -3,6 +3,7 @@ import 'package:hendrix_tours_app/objects/info_view_item.dart';
 import 'package:hendrix_tours_app/objects/list_view_item.dart';
 import 'package:hendrix_tours_app/objects/widget_item.dart';
 import 'package:hendrix_tours_app/objects/video_player_widget.dart'; // Import the VideoPlayerWidget
+import 'package:hendrix_tours_app/structures/stack_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // Standard button style to be used across all pages
@@ -51,7 +52,7 @@ class MainPageTemplate extends StatefulWidget {
   //final bool hasImage;
   //final String? imagePath; // Path for image display
   //final String? videoPath; // Path for video playback
-  final WidgetItem contentWidget;
+  final WidgetItem rootWidget;
   final bool showBackButton;
 
   const MainPageTemplate({
@@ -60,7 +61,7 @@ class MainPageTemplate extends StatefulWidget {
     //required this.hasImage,
     //this.imagePath,
     //this.videoPath,
-    required this.contentWidget,
+    required this.rootWidget,
     this.showBackButton = true,
   });
 
@@ -76,9 +77,11 @@ class MainPageTemplateState extends State<MainPageTemplate> {
   String? imagePath; // Path for image display
   String? videoPath; // Path for video playback
   WidgetItem? contentWidget;
+  WidgetItem? rootWidget;
   bool showBackButton = false;
   String link = '';
   String visitLink = 'https://www.hendrix.edu/visit/';
+  StackData stack = StackData();
 
   // Launches the visit url
   Future<void> _launchUrl() async {
@@ -103,17 +106,32 @@ class MainPageTemplateState extends State<MainPageTemplate> {
       imagePath = contentWidget!.imagePath;
       videoPath = contentWidget!.videoPath;
       link = contentWidget!.link;
+      stack.push(contentWidget);
+    });
+  }
+
+  void _goBack () {
+    setState(() {
+      stack.pop();
+      contentWidget = stack.peek();
+      pageTitle = contentWidget!.title;
+      hasImage = contentWidget!.hasImage;
+      imagePath = contentWidget!.imagePath;
+      videoPath = contentWidget!.videoPath;
+      link = contentWidget!.link;
     });
   }
 
   @override
   void initState() {
-    contentWidget = widget.contentWidget;
+    rootWidget = widget.rootWidget;
+    contentWidget = widget.rootWidget;
     pageTitle = contentWidget!.title;
     hasImage = contentWidget!.hasImage;
     imagePath = contentWidget!.imagePath;
     videoPath = contentWidget!.videoPath;
     link = contentWidget!.link;
+    stack.push(rootWidget);
     super.initState();
   }
 
@@ -131,6 +149,16 @@ class MainPageTemplateState extends State<MainPageTemplate> {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(100),
           child: AppBar(
+            title: Row(
+              children: [
+                if(contentWidget != rootWidget) ...{
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back),
+                    onPressed: _goBack,
+                  ),
+                }
+              ]
+            ),
             backgroundColor: const Color.fromRGBO(245, 130, 42, 1),
             iconTheme: const IconThemeData(color: Colors.white),
             actions: [

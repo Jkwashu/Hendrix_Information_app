@@ -12,7 +12,7 @@ class StudentLifePage extends StatelessWidget {
       // pageTitle: 'Student Life',
       // hasImage: true,
       // imagePath: 'lib/assets/studentlife.jpg',
-      contentWidget: CustomStudentLifeView(),
+      rootWidget: CustomStudentLifeView(),
     );
   }
 }
@@ -65,7 +65,7 @@ class ClubsPage extends StatelessWidget {
       // pageTitle: 'Clubs',
       // hasImage: true,
       // imagePath: 'lib/assets/clubs.jpg',
-      contentWidget: CustomClubsView(),
+      rootWidget: CustomClubsView(),
     );
   }
 }
@@ -136,7 +136,7 @@ class AnnualEventsPage extends StatelessWidget {
       // pageTitle: 'Annual Events',
       // hasImage: true,
       // imagePath: 'lib/assets/events.jpg',
-      contentWidget: CustomEventsView(),
+      rootWidget: CustomEventsView(),
     );
   }
 }
@@ -201,7 +201,7 @@ class ProfileClubPage extends StatelessWidget {
       // pageTitle: 'The Profile',
       // hasImage: true,
       // imagePath: profileContent.imagePath,
-      contentWidget: profileContent,
+      rootWidget: profileContent,
     );
   }
 }

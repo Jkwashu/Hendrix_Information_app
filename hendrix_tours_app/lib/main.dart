@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
       // Funny Video Path:
       //videoPath: 'https://drive.google.com/uc?export=download&id=1QpEP4rnBEqwu-zaHSSwVfrU-hInBe5DG',
 
-      contentWidget: testRoot,//CustomHomeListView(),
+      rootWidget: testRoot,//CustomHomeListView(),
       showBackButton: false,
     );
   }

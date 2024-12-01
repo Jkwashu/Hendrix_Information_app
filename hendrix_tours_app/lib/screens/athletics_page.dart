@@ -11,7 +11,7 @@ class AthleticsPage extends StatelessWidget {
       // pageTitle: 'Athletics',
       // hasImage: true,
       // imagePath: 'lib/assets/athletics.jpg',
-      contentWidget: CustomAthleticsView(),
+      rootWidget: CustomAthleticsView(),
     );
   }
 }

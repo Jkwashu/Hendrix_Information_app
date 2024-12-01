@@ -11,7 +11,7 @@ class AcademicsPage extends StatelessWidget {
       // pageTitle: 'Academics',
       // hasImage: true,
       // imagePath: 'lib/assets/academics.jpg',
-      contentWidget: CustomAcademicsView(),
+      rootWidget: CustomAcademicsView(),
     );
   }
 }

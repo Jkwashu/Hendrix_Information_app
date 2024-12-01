@@ -13,7 +13,7 @@ class FoodHousingPage extends StatelessWidget {
       // pageTitle: 'Food and Housing',
       // hasImage: true,
       // imagePath: 'lib/assets/foodandhousing.jpg',
-      contentWidget: CustomFoodHousingView(),
+      rootWidget: CustomFoodHousingView(),
     );
   }
 }
@@ -97,7 +97,7 @@ class NorthPage extends StatelessWidget {
       // pageTitle: 'Northside Dorms',
       // hasImage: true,
       // imagePath: 'lib/assets/northside.jpg',
-      contentWidget: CustomNorthView(),
+      rootWidget: CustomNorthView(),
     );
   }
 }
@@ -158,7 +158,7 @@ class SouthPage extends StatelessWidget {
       // pageTitle: 'Southside Dorms',
       // hasImage: true,
       // imagePath: 'lib/assets/southside.jpg',
-      contentWidget: CustomSouthView(),
+      rootWidget: CustomSouthView(),
     );
   }
 }
@@ -222,7 +222,7 @@ class AptPage extends StatelessWidget {
       // pageTitle: 'Apartments',
       // hasImage: true,
       // imagePath: 'lib/assets/apartments.jpg',
-      contentWidget: CustomAptView(),
+      rootWidget: CustomAptView(),
     );
   }
 }
@@ -307,7 +307,7 @@ class CustomHardinView extends StatelessWidget {
       // pageTitle: hardinContent.title,
       // hasImage: false,
       // imagePath: hardinContent.imagePath,
-      contentWidget: hardinContent,
+      rootWidget: hardinContent,
     );
   }
 }
