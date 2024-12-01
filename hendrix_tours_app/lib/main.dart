@@ -6,6 +6,7 @@ import 'package:hendrix_tours_app/screens/student_life_page.dart';
 import 'package:hendrix_tours_app/screens/food_housing.dart';
 import 'package:hendrix_tours_app/templates/main_page_template.dart';
 import 'package:hendrix_tours_app/objects/list_view_item.dart';
+import 'package:hendrix_tours_app/test_root.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,14 +31,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainPageTemplate(
-      pageTitle: 'Welcome',
-      hasImage: false,
+      //pageTitle: 'Welcome',
+      //hasImage: false,
       // Hendrix Tours Video Path:
-      videoPath: 'https://drive.google.com/uc?export=download&id=1DIb09B9lxjHeLjcpLOxRj-b0CEOADmWX',
+      //videoPath: 'https://drive.google.com/uc?export=download&id=1DIb09B9lxjHeLjcpLOxRj-b0CEOADmWX',
       // Funny Video Path:
       //videoPath: 'https://drive.google.com/uc?export=download&id=1QpEP4rnBEqwu-zaHSSwVfrU-hInBe5DG',
 
-      contentWidget: CustomHomeListView(),
+      rootWidget: testRoot,//CustomHomeListView(),
       showBackButton: false,
     );
   }
@@ -48,13 +49,14 @@ class CustomHomeListView extends ListViewItem {
       : super(
           title: 'Home',
           child: const [],
-          imagePath: '',
+          hasImage: false,
+          videoPath: 'https://drive.google.com/uc?export=download&id=1DIb09B9lxjHeLjcpLOxRj-b0CEOADmWX',
           isListView: true,
           link: '',
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         HendrixButton(

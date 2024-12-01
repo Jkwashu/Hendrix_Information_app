@@ -8,10 +8,10 @@ class AcademicsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainPageTemplate(
-      pageTitle: 'Academics',
-      hasImage: true,
-      imagePath: 'lib/assets/academics.jpg',
-      contentWidget: CustomAcademicsView(),
+      // pageTitle: 'Academics',
+      // hasImage: true,
+      // imagePath: 'lib/assets/academics.jpg',
+      rootWidget: CustomAcademicsView(),
     );
   }
 }
@@ -21,13 +21,14 @@ class CustomAcademicsView extends ListViewItem {
       : super(
           title: 'Academics',
           child: [],
+          hasImage: true,
           imagePath: 'lib/assets/academics.jpg',
           isListView: true,
           link: '',
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         HendrixButton(

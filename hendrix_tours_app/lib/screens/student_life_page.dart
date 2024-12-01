@@ -9,10 +9,10 @@ class StudentLifePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainPageTemplate(
-      pageTitle: 'Student Life',
-      hasImage: true,
-      imagePath: 'lib/assets/studentlife.jpg',
-      contentWidget: CustomStudentLifeView(),
+      // pageTitle: 'Student Life',
+      // hasImage: true,
+      // imagePath: 'lib/assets/studentlife.jpg',
+      rootWidget: CustomStudentLifeView(),
     );
   }
 }
@@ -22,13 +22,14 @@ class CustomStudentLifeView extends ListViewItem {
       : super(
           title: 'Student Life',
           child: const [],
+          hasImage: true,
           imagePath: 'lib/assets/studentlife.jpg',
           isListView: true,
           link: '',
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         HendrixButton(
@@ -61,10 +62,10 @@ class ClubsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainPageTemplate(
-      pageTitle: 'Clubs',
-      hasImage: true,
-      imagePath: 'lib/assets/clubs.jpg',
-      contentWidget: CustomClubsView(),
+      // pageTitle: 'Clubs',
+      // hasImage: true,
+      // imagePath: 'lib/assets/clubs.jpg',
+      rootWidget: CustomClubsView(),
     );
   }
 }
@@ -74,13 +75,14 @@ class CustomClubsView extends ListViewItem {
       : super(
           title: 'Clubs',
           child: const [],
+          hasImage: true,
           imagePath: 'lib/assets/clubs.jpg',
           isListView: true,
           link: '',
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         HendrixButton(
@@ -131,10 +133,10 @@ class AnnualEventsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainPageTemplate(
-      pageTitle: 'Annual Events',
-      hasImage: true,
-      imagePath: 'lib/assets/events.jpg',
-      contentWidget: CustomEventsView(),
+      // pageTitle: 'Annual Events',
+      // hasImage: true,
+      // imagePath: 'lib/assets/events.jpg',
+      rootWidget: CustomEventsView(),
     );
   }
 }
@@ -145,13 +147,14 @@ class CustomEventsView extends ListViewItem {
       : super(
           title: 'Annual Events',
           child: [],
+          hasImage: true,
           imagePath: 'lib/assets/events.jpg',
           isListView: true,
           link: '',
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         SizedBox(
@@ -187,6 +190,7 @@ class ProfileClubPage extends StatelessWidget {
     final profileContent = InfoViewItem(
       title: 'The Profile',
       description: 'The official student-run news source of Hendrix College',
+      hasImage: true,
       imagePath: 'lib/assets/profile.jpg',
       connBuildings: [],
       connDepartments: [],
@@ -194,11 +198,10 @@ class ProfileClubPage extends StatelessWidget {
     );
 
     return MainPageTemplate(
-      pageTitle: 'The Profile',
-      hasImage: true,
-      imagePath: profileContent.imagePath,
-      videoPath: null,
-      contentWidget: profileContent,
+      // pageTitle: 'The Profile',
+      // hasImage: true,
+      // imagePath: profileContent.imagePath,
+      rootWidget: profileContent,
     );
   }
 }

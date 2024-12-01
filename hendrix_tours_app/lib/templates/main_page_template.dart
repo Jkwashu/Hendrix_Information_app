@@ -3,6 +3,7 @@ import 'package:hendrix_tours_app/objects/info_view_item.dart';
 import 'package:hendrix_tours_app/objects/list_view_item.dart';
 import 'package:hendrix_tours_app/objects/widget_item.dart';
 import 'package:hendrix_tours_app/objects/video_player_widget.dart'; // Import the VideoPlayerWidget
+import 'package:hendrix_tours_app/structures/stack_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // Standard button style to be used across all pages
@@ -22,10 +23,10 @@ class HendrixButton extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const HendrixButton({
-    Key? key,
+    super.key,
     required this.text,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,29 +47,105 @@ class HendrixButton extends StatelessWidget {
   }
 }
 
-class MainPageTemplate extends StatelessWidget {
-  final String pageTitle;
-  final bool hasImage;
-  final String? imagePath; // Path for image display
-  final String? videoPath; // Path for video playback
-  final WidgetItem contentWidget;
+class MainPageTemplate extends StatefulWidget {
+  //final String pageTitle;
+  //final bool hasImage;
+  //final String? imagePath; // Path for image display
+  //final String? videoPath; // Path for video playback
+  final WidgetItem rootWidget;
   final bool showBackButton;
 
   const MainPageTemplate({
-    Key? key,
-    required this.pageTitle,
-    required this.hasImage,
-    this.imagePath,
-    this.videoPath,
-    required this.contentWidget,
+    super.key,
+    //required this.pageTitle,
+    //required this.hasImage,
+    //this.imagePath,
+    //this.videoPath,
+    required this.rootWidget,
     this.showBackButton = true,
-  }) : super(key: key);
+  });
 
+  
+
+  @override
+  State<StatefulWidget> createState() => MainPageTemplateState();
+}
+
+class MainPageTemplateState extends State<MainPageTemplate> {
+  String pageTitle = '';
+  bool hasImage = false;
+  String? imagePath; // Path for image display
+  String? videoPath; // Path for video playback
+  WidgetItem? contentWidget;
+  WidgetItem? rootWidget;
+  bool showBackButton = false;
+  String link = '';
+  String visitLink = 'https://www.hendrix.edu/visit/';
+  StackData stack = StackData();
+
+  // Launches the visit url
   Future<void> _launchUrl() async {
-    final Uri url = Uri.parse('https://www.hendrix.edu/visit/');
+    final Uri url = Uri.parse(visitLink);
     if (!await launchUrl(url)) {
       throw Exception('Could not launch $url');
     }
+  }
+  // Launches the url associated with the page
+  Future<void> _launchConUrl() async {
+    final Uri url = Uri.parse(link);
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
+  void _setCurrentContentWidget (WidgetItem newContent) {
+    setState(() {
+      contentWidget = newContent;
+      pageTitle = contentWidget!.title;
+      hasImage = contentWidget!.hasImage;
+      imagePath = contentWidget!.imagePath;
+      videoPath = contentWidget!.videoPath;
+      link = contentWidget!.link;
+      stack.push(contentWidget);
+    });
+  }
+
+  void _goBack () {
+    setState(() {
+      stack.pop();
+      contentWidget = stack.peek();
+      pageTitle = contentWidget!.title;
+      hasImage = contentWidget!.hasImage;
+      imagePath = contentWidget!.imagePath;
+      videoPath = contentWidget!.videoPath;
+      link = contentWidget!.link;
+    });
+  }
+
+  void _goHome() {
+    setState(() {
+      stack = StackData();
+      stack.push(rootWidget);
+      contentWidget = stack.peek();
+      pageTitle = contentWidget!.title;
+      hasImage = contentWidget!.hasImage;
+      imagePath = contentWidget!.imagePath;
+      videoPath = contentWidget!.videoPath;
+      link = contentWidget!.link;
+    });
+  }
+
+  @override
+  void initState() {
+    rootWidget = widget.rootWidget;
+    contentWidget = widget.rootWidget;
+    pageTitle = contentWidget!.title;
+    hasImage = contentWidget!.hasImage;
+    imagePath = contentWidget!.imagePath;
+    videoPath = contentWidget!.videoPath;
+    link = contentWidget!.link;
+    stack.push(rootWidget);
+    super.initState();
   }
 
   @override
@@ -85,8 +162,24 @@ class MainPageTemplate extends StatelessWidget {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(100),
           child: AppBar(
+            title: Row(
+              children: [
+                if(contentWidget != rootWidget) ...{
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back),
+                    onPressed: _goBack,
+                  ),
+                }
+              ]
+            ),
             backgroundColor: const Color.fromRGBO(245, 130, 42, 1),
             iconTheme: const IconThemeData(color: Colors.white),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.link),
+                onPressed: _launchConUrl,
+              ),
+            ],
             flexibleSpace: SafeArea(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -150,7 +243,7 @@ class MainPageTemplate extends StatelessWidget {
                 ],
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: contentWidget.getWidget(context),
+                  child: contentWidget!.getWidget(context, _setCurrentContentWidget),
                 ),
               ],
             ),
@@ -172,14 +265,12 @@ class MainPageTemplate extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              if (showBackButton) ...[
+              if (contentWidget != rootWidget) ...[
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(right: 8.0),
                     child: ElevatedButton.icon(
-                      onPressed: () {
-                        Navigator.popUntil(context, (route) => route.isFirst);
-                      },
+                      onPressed: _goHome,
                       icon: const Icon(Icons.home),
                       label: const Text(
                         'Back to Home',

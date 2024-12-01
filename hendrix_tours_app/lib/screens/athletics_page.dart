@@ -8,10 +8,10 @@ class AthleticsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainPageTemplate(
-      pageTitle: 'Athletics',
-      hasImage: true,
-      imagePath: 'lib/assets/athletics.jpg',
-      contentWidget: CustomAthleticsView(),
+      // pageTitle: 'Athletics',
+      // hasImage: true,
+      // imagePath: 'lib/assets/athletics.jpg',
+      rootWidget: CustomAthleticsView(),
     );
   }
 }
@@ -21,13 +21,14 @@ class CustomAthleticsView extends ListViewItem {
       : super(
           title: 'Athletics',
           child: const [],
+          hasImage: true,
           imagePath: 'lib/assets/athletics.jpg',
           isListView: true,
           link: '',
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         HendrixButton(
