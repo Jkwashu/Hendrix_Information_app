@@ -122,6 +122,19 @@ class MainPageTemplateState extends State<MainPageTemplate> {
     });
   }
 
+  void _goHome() {
+    setState(() {
+      stack = StackData();
+      stack.push(rootWidget);
+      contentWidget = stack.peek();
+      pageTitle = contentWidget!.title;
+      hasImage = contentWidget!.hasImage;
+      imagePath = contentWidget!.imagePath;
+      videoPath = contentWidget!.videoPath;
+      link = contentWidget!.link;
+    });
+  }
+
   @override
   void initState() {
     rootWidget = widget.rootWidget;
@@ -252,14 +265,12 @@ class MainPageTemplateState extends State<MainPageTemplate> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              if (showBackButton) ...[
+              if (contentWidget != rootWidget) ...[
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(right: 8.0),
                     child: ElevatedButton.icon(
-                      onPressed: () {
-                        Navigator.popUntil(context, (route) => route.isFirst);
-                      },
+                      onPressed: _goHome,
                       icon: const Icon(Icons.home),
                       label: const Text(
                         'Back to Home',
