@@ -1,6 +1,8 @@
 import 'package:hendrix_tours_app/objects/widget_item.dart';
 import 'package:flutter/material.dart';
 
+import '../templates/main_page_template.dart';
+
 Color hendrixOrange = const Color.fromRGBO(245, 130, 42, 1);
 
 /*
@@ -39,31 +41,18 @@ class ListViewItem implements WidgetItem {
   }
 
   @override
-  Widget getWidget(context) {
+  Widget getWidget(context, onChangeWidget) {
     List<Widget> listViewList = [];
 
     for (WidgetItem i in child) {
       listViewList.add(
-        SizedBox(
-          width: double.infinity,
-          height: 60,
-          child: ElevatedButton(
-            onPressed: null,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: hendrixOrange,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-            child: Text(
-              i.title,
-              style: Theme.of(context).textTheme.displaySmall,
-            ),
-          ),
-        ),
+        const SizedBox(height: 16), // Spacing between buttons
       );
       listViewList.add(
-        const SizedBox(height: 16), // Spacing between buttons
+        HendrixButton(
+          text: i.title,
+          onPressed: () {onChangeWidget(i);},
+        )
       );
     }
 

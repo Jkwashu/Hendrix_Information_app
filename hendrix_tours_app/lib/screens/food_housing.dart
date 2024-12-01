@@ -30,7 +30,7 @@ class CustomFoodHousingView extends ListViewItem {
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         HendrixButton(
@@ -114,7 +114,7 @@ class CustomNorthView extends ListViewItem {
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         HendrixButton(
@@ -175,7 +175,7 @@ class CustomSouthView extends ListViewItem {
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         HendrixButton(
@@ -239,7 +239,7 @@ class CustomAptView extends ListViewItem {
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         HendrixButton(

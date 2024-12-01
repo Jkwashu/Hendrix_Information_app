@@ -36,16 +36,16 @@ class InfoViewItem implements WidgetItem {
   final String link;
 
   // Returns a list of TextButton objects that will connect to their associated InfoViewPage.
-  List<Widget> linkTextList(context, List<InfoViewItem> list) {
+  List<Widget> linkTextList(context, List<InfoViewItem> list, onChangeWidget) {
     List<TextButton> connButtons = [];
 
     if (list.isNotEmpty) {
       for (InfoViewItem i in list) {
         connButtons.add(TextButton(
-          onPressed: null, // Change once navigation is implemented
+          onPressed: () {onChangeWidget(i);},
           child: Text(
             i.title,
-            style: Theme.of(context).textTheme.displaySmall,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
         ));
       }
@@ -57,7 +57,7 @@ class InfoViewItem implements WidgetItem {
   }
 
   @override
-  Widget getWidget(context) {
+  Widget getWidget(context, onChangeWidget) {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -94,7 +94,7 @@ class InfoViewItem implements WidgetItem {
                   const SizedBox(height: 8),
                   Text(
                     description,
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],
               ),
@@ -121,7 +121,7 @@ class InfoViewItem implements WidgetItem {
                   ),
                   const SizedBox(height: 8),
                   Column(
-                    children: linkTextList(context, connBuildings),
+                    children: linkTextList(context, connBuildings, onChangeWidget),
                   ),
                 ],
               ),
@@ -148,7 +148,7 @@ class InfoViewItem implements WidgetItem {
                   ),
                   const SizedBox(height: 8),
                   Column(
-                    children: linkTextList(context, connDepartments),
+                    children: linkTextList(context, connDepartments, onChangeWidget),
                   ),
                 ],
               ),

@@ -6,6 +6,7 @@ import 'package:hendrix_tours_app/screens/student_life_page.dart';
 import 'package:hendrix_tours_app/screens/food_housing.dart';
 import 'package:hendrix_tours_app/templates/main_page_template.dart';
 import 'package:hendrix_tours_app/objects/list_view_item.dart';
+import 'package:hendrix_tours_app/test_root.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +38,7 @@ class HomePage extends StatelessWidget {
       // Funny Video Path:
       //videoPath: 'https://drive.google.com/uc?export=download&id=1QpEP4rnBEqwu-zaHSSwVfrU-hInBe5DG',
 
-      contentWidget: CustomHomeListView(),
+      contentWidget: testRoot,//CustomHomeListView(),
       showBackButton: false,
     );
   }
@@ -55,7 +56,7 @@ class CustomHomeListView extends ListViewItem {
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         HendrixButton(

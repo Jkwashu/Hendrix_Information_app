@@ -29,7 +29,7 @@ class CustomStudentLifeView extends ListViewItem {
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         HendrixButton(
@@ -82,7 +82,7 @@ class CustomClubsView extends ListViewItem {
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         HendrixButton(
@@ -154,7 +154,7 @@ class CustomEventsView extends ListViewItem {
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         SizedBox(

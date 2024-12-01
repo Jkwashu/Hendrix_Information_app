@@ -95,6 +95,17 @@ class MainPageTemplateState extends State<MainPageTemplate> {
     }
   }
 
+  void _setCurrentContentWidget (WidgetItem newContent) {
+    setState(() {
+      contentWidget = newContent;
+      pageTitle = contentWidget!.title;
+      hasImage = contentWidget!.hasImage;
+      imagePath = contentWidget!.imagePath;
+      videoPath = contentWidget!.videoPath;
+      link = contentWidget!.link;
+    });
+  }
+
   @override
   void initState() {
     contentWidget = widget.contentWidget;
@@ -191,7 +202,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
                 ],
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: contentWidget!.getWidget(context),
+                  child: contentWidget!.getWidget(context, _setCurrentContentWidget),
                 ),
               ],
             ),

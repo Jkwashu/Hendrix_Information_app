@@ -28,7 +28,7 @@ class CustomAcademicsView extends ListViewItem {
         );
 
   @override
-  Widget getWidget(BuildContext context) {
+  Widget getWidget(BuildContext context, onChangeWidget) {
     return Column(
       children: [
         HendrixButton(
