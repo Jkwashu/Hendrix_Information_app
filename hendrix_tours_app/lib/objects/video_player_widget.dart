@@ -42,7 +42,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
       onVisibilityChanged: (visibilityInfo) {
         // Check if widget is visible
         if (visibilityInfo.visibleFraction == 0) {
-          _controller.pause(); // Pause the video when it's not visible
+          //_controller.pause(); // Pause the video when it's not visible
         } else if (!_controller.value.isPlaying) {
           _controller.play();
         }
