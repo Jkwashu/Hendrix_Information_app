@@ -206,47 +206,49 @@ class MainPageTemplateState extends State<MainPageTemplate> {
           ),
         ),
         body: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                if (videoPath != null) ...[
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: SizedBox(
-                      width: double.infinity,
-                      height: 200,
-                      child: VideoPlayerWidget(videoUrl: videoPath!), // Play video if a path is provided
-                    ),
-                  ),
-                ],
-                if (hasImage && videoPath == null) ...[
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(8),
-                        image: imagePath != null
-                            ? DecorationImage(
-                                image: AssetImage(imagePath!),
-                                fit: BoxFit.cover,
-                              )
-                            : null,
-                      ),
-                      child: imagePath == null
-                          ? const Center(child: Text('Media Placeholder'))
-                          : null,
-                    ),
-                  ),
-                ],
+          child: Column(
+            children: [
+              if (videoPath != null) ...[
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: contentWidget!.getWidget(context, _setCurrentContentWidget),
+                  padding: const EdgeInsets.all(16.0),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 200,
+                    child: VideoPlayerWidget(videoUrl: videoPath!), // Play video if a path is provided
+                  ),
                 ),
               ],
-            ),
+              if (hasImage && videoPath == null) ...[
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(8),
+                      image: imagePath != null
+                          ? DecorationImage(
+                              image: AssetImage(imagePath!),
+                              fit: BoxFit.cover,
+                            )
+                          : null,
+                    ),
+                    child: imagePath == null
+                        ? const Center(child: Text('Media Placeholder'))
+                        : null,
+                  ),
+                ),
+              ],
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: contentWidget!.getWidget(context, _setCurrentContentWidget),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
         bottomNavigationBar: Container(
