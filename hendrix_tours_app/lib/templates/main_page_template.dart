@@ -275,9 +275,10 @@ class MainPageTemplateState extends State<MainPageTemplate> {
                       onPressed: _goHome,
                       icon: const Icon(Icons.home),
                       label: const Text(
-                        'Back to Home',
+                        'Back Home',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
+                          fontSize: 14,
                         ),
                       ),
                       style: HendrixButtonStyle.standard,
@@ -295,6 +296,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
                       'Plan a Visit',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        fontSize: 14,
                       ),
                     ),
                     style: HendrixButtonStyle.standard,
