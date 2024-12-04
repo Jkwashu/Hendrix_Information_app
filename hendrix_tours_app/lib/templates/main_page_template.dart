@@ -176,7 +176,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
             iconTheme: const IconThemeData(color: Colors.white),
             actions: [
               IconButton(
-                icon: const Icon(Icons.link),
+                icon: const Icon(Icons.launch),
                 onPressed: _launchConUrl,
               ),
             ],

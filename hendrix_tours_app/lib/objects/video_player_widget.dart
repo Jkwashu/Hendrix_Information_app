@@ -22,11 +22,22 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
     )
       ..initialize().then((_) {
         setState(() {}); // Rebuild when the video is ready
-        _controller.play(); // Auto-play
+        //_controller.play(); // Auto-play
         _controller.setLooping(true); // Enable looping
       }).catchError((error) {
         debugPrint('Error loading video: $error');
       });
+  }
+
+  void handleTap() {
+    setState(() {
+    if (!_controller.value.isPlaying) {
+      _controller.play();
+    }
+    else {
+      _controller.pause();
+    }
+  });
   }
 
   @override
@@ -37,16 +48,8 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return VisibilityDetector(
-      key: Key(widget.videoUrl), // Unique key for the detector
-      onVisibilityChanged: (visibilityInfo) {
-        // Check if widget is visible
-        if (visibilityInfo.visibleFraction == 0) {
-          //_controller.pause(); // Pause the video when it's not visible
-        } else if (!_controller.value.isPlaying) {
-          _controller.play();
-        }
-      },
+    return GestureDetector(
+      onTap: handleTap,
       child: _controller.value.isInitialized
           ? AspectRatio(
               aspectRatio: _controller.value.aspectRatio,
