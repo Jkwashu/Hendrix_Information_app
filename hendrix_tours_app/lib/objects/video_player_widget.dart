@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 class VideoPlayerWidget extends StatefulWidget {
   final String videoUrl;
@@ -13,20 +12,23 @@ class VideoPlayerWidget extends StatefulWidget {
 
 class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   late VideoPlayerController _controller;
+  late Future<void> _initializeVideoPlayerFuture; // Ensure proper initialization tracking
+  bool _isPaused = true; // Start in a paused state
 
   @override
   void initState() {
     super.initState();
     _controller = VideoPlayerController.networkUrl(
       Uri.parse(widget.videoUrl),
-    )
-      ..initialize().then((_) {
-        setState(() {}); // Rebuild when the video is ready
-        _controller.play(); // Auto-play
-        _controller.setLooping(true); // Enable looping
-      }).catchError((error) {
-        debugPrint('Error loading video: $error');
-      });
+    );
+    _initializeVideoPlayerFuture = _controller.initialize().then((_) {
+      if (mounted) {
+        setState(() {}); // Rebuild when video is initialized
+      }
+    }).catchError((error) {
+      debugPrint('Error initializing video: $error');
+    });
+    _controller.setLooping(true); // Enable looping
   }
 
   @override
@@ -35,26 +37,71 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
     super.dispose();
   }
 
+  void _togglePlayPause() {
+    setState(() {
+      if (_controller.value.isPlaying) {
+        _controller.pause();
+        _isPaused = true; // Update state to show the overlay
+      } else {
+        _controller.play();
+        _isPaused = false; // Update state to hide the overlay
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return VisibilityDetector(
-      key: Key(widget.videoUrl), // Unique key for the detector
-      onVisibilityChanged: (visibilityInfo) {
-        // Check if widget is visible
-        if (visibilityInfo.visibleFraction == 0) {
-          //_controller.pause(); // Pause the video when it's not visible
-        } else if (!_controller.value.isPlaying) {
-          _controller.play();
+    return FutureBuilder<void>(
+      future: _initializeVideoPlayerFuture,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return Stack(
+            alignment: Alignment.center, // Center the overlay icon
+            children: [
+              // Video Player
+              AspectRatio(
+                aspectRatio: _controller.value.aspectRatio,
+                child: VideoPlayer(_controller),
+              ),
+
+              // Overlay for Play Icon and GestureDetector
+              GestureDetector(
+                onTap: _togglePlayPause,
+                child: AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: Container(
+                    color: Colors.transparent, // Transparent to capture taps
+                  ),
+                ),
+              ),
+
+              // Play Icon Overlay (Visible when paused)
+              if (_isPaused)
+              GestureDetector(
+                onTap: _togglePlayPause,
+                child: AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: Container(
+                    color: Colors.black45, // Semi-transparent black background
+                    child: const Center(
+                      child: Icon(
+                        Icons.play_arrow_rounded,
+                        size: 64,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          );
+        } else {
+          // Show loading spinner while video initializes
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         }
       },
-      child: _controller.value.isInitialized
-          ? AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              child: VideoPlayer(_controller),
-            )
-          : const Center(
-              child: CircularProgressIndicator(),
-            ),
     );
   }
 }
