@@ -9,38 +9,117 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hendrix_tours_app/main.dart';
+import 'package:hendrix_tours_app/objects/info_view_item.dart';
+import 'package:hendrix_tours_app/objects/list_view_item.dart';
+import 'package:hendrix_tours_app/templates/main_page_template.dart';
 
 void main() {
 
   testWidgets('Navigating between different pages', (WidgetTester tester) async {
-    await tester.binding.setSurfaceSize(const Size(1080, 2340));
+    // Arrange: Making pages
+    final leafPage = InfoViewItem(
+      title: 'Leaf Page',
+      description: 'Leaf page content',
+      hasImage: false,
+      connBuildings: [],
+      connDepartments: [],
+      link: '',
+    );
 
-    await tester.pumpWidget(const MyApp());
-    expect(find.text('Hendrix Tours'), findsOneWidget);
+    final middlePage = ListViewItem(
+      title: 'Middle Page',
+      child: [leafPage],
+      hasImage: false,
+      isListView: true,
+      link: '',
+    );
 
-    await tester.tap(find.text('Food and Housing'));
+    final rootPage = ListViewItem(
+      title: 'Root Page',
+      child: [middlePage],
+      hasImage: false,
+      isListView: true,
+      link: '',
+    );
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: MainPageTemplate(
+          rootWidget: rootPage,
+          showBackButton: true,
+        ),
+      ),
+    );
+
+    // Act: Navigate through the pages
+    await tester.tap(find.text('Middle Page'));
     await tester.pumpAndSettle();
-    expect(find.text('The Caf'), findsOneWidget);
+    await tester.tap(find.text('Leaf Page'));
+    await tester.pumpAndSettle();
+
+    // Assert
+    expect(find.text('Leaf Page'), findsOneWidget);
+    expect(find.text('Leaf page content'), findsOneWidget);
+    expect(find.text('Back Home'), findsOneWidget);
+    expect(find.byIcon(Icons.arrow_back), findsOneWidget);
+  });
+
+  testWidgets('Back Home works from all pages', (WidgetTester tester) async {
+    // Arrange: Creating pages
+    final leafPage = InfoViewItem(
+      title: 'Leaf Page',
+      description: 'Leaf page content',
+      hasImage: false,
+      connBuildings: [],
+      connDepartments: [],
+      link: '',
+    );
+
+    final middlePage = ListViewItem(
+      title: 'Middle Page',
+      child: [leafPage],
+      hasImage: false,
+      isListView: true,
+      link: '',
+    );
+
+    final rootPage = ListViewItem(
+      title: 'Root Page',
+      child: [middlePage],
+      hasImage: false,
+      isListView: true,
+      link: '',
+    );
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: MainPageTemplate(
+          rootWidget: rootPage,
+          showBackButton: true,
+        ),
+      ),
+    );
+
+    // Act: Navigate to deepest level
+    await tester.tap(find.text('Middle Page'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Leaf Page'));
+    await tester.pumpAndSettle();
     
-    await tester.tap(find.text('Back to Home'));
+    // Verify we're there
+    expect(find.text('Leaf page content'), findsOneWidget);
+
+    // Click 'Back Home'
+    await tester.tap(find.text('Back Home'));
     await tester.pumpAndSettle();
-    expect(find.text('Food and Housing'), findsOneWidget);
+
+    // Assert
+    expect(find.text('Root Page'), findsOneWidget);
+    expect(find.text('Middle Page'), findsOneWidget);
+    expect(find.text('Back Home'), findsNothing);
+    expect(find.text('Leaf Page'), findsNothing);
+
   });
 
-  testWidgets('Back to Home works from all pages', (WidgetTester tester) async {
-    await tester.binding.setSurfaceSize(const Size(1080, 2340));
-    await tester.pumpWidget(const MyApp());
-
-    for (final page in ['Food and Housing', 'Athletics', 'Student Life']) {
-      await tester.tap(find.text(page));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('Back to Home'));  
-      await tester.pumpAndSettle();
-      expect(find.text('Academics'), findsOneWidget);
-    }
-  });
-
-  // External link test ?
-
-  // testWidgets('Test for web based API feature', callback)
+  // Would add a Firebase test but not sure how to implement that
 }
