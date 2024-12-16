@@ -120,9 +120,18 @@ flutter:
       - lib/assets/physics.jpg
       - lib/assets/soar.jpg
       - lib/assets/sociology.jpg
+      - lib/assets/softball.jpg
+      - lib/assets/sturgis.jpg
       - lib/assets/swordclub.jpg
+      - lib/assets/tennis.jpg
       - lib/assets/theatre.jpg
       - lib/assets/vac.jpg
+      - lib/assets/wac.jpg
+      - lib/assets/ywstadium.jpg
+      - lib/assets/lax.jpg
+      - lib/assets/baseball.jpg
+      - lib/assets/soccer.jpg
+      - lib/assets/wac.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
