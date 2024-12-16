@@ -1,15 +1,6 @@
-import 'package:hendrix_tours_app/objects/widget_item.dart';
 import 'package:flutter/material.dart';
-
-import '../templates/main_page_template.dart';
-
-Color hendrixOrange = const Color.fromRGBO(245, 130, 42, 1);
-
-/*
-This class contains the data and returns a widget of itself with buildWidget.
-*/
-
-// TODO add String videoPath and bool hasVideo
+import 'package:hendrix_tours_app/objects/widget_item.dart';
+import 'package:hendrix_tours_app/templates/main_page_template.dart';
 
 class ListViewItem implements WidgetItem {
   ListViewItem({
@@ -36,25 +27,30 @@ class ListViewItem implements WidgetItem {
   final String link;
 
   @override
-  String toString() {
-    return title;
-  }
+  Widget getWidget(BuildContext context, WidgetCallback onChangeWidget) {
+    print('ListViewItem.getWidget called for $title'); // Debug log
+    print('Number of children: ${child.length}'); // Debug log
 
-  @override
-  Widget getWidget(context, onChangeWidget) {
     List<Widget> listViewList = [];
 
     for (WidgetItem i in child) {
+      print('Processing child: ${i.title}'); // Debug log
+
       listViewList.add(
-        const SizedBox(height: 16), // Spacing between buttons
+        const SizedBox(height: 16),
       );
       listViewList.add(
         HendrixButton(
           text: i.title,
-          onPressed: () {onChangeWidget(i);},
-        )
+          onPressed: () {
+            print('Button pressed for: ${i.title}'); // Debug log
+            onChangeWidget(i);
+          },
+        ),
       );
     }
+
+    print('Created ${listViewList.length} widgets'); // Debug log
 
     return Column(
       children: listViewList,

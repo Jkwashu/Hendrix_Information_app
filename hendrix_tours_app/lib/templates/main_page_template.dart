@@ -65,8 +65,6 @@ class MainPageTemplate extends StatefulWidget {
     this.showBackButton = true,
   });
 
-  
-
   @override
   State<StatefulWidget> createState() => MainPageTemplateState();
 }
@@ -90,6 +88,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
       throw Exception('Could not launch $url');
     }
   }
+
   // Launches the url associated with the page
   Future<void> _launchConUrl() async {
     final Uri url = Uri.parse(link);
@@ -98,7 +97,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
     }
   }
 
-  void _setCurrentContentWidget (WidgetItem newContent) {
+  void _setCurrentContentWidget(WidgetItem newContent) {
     setState(() {
       contentWidget = newContent;
       pageTitle = contentWidget!.title;
@@ -110,7 +109,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
     });
   }
 
-  void _goBack () {
+  void _goBack() {
     setState(() {
       stack.pop();
       contentWidget = stack.peek();
@@ -162,21 +161,19 @@ class MainPageTemplateState extends State<MainPageTemplate> {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(100),
           child: AppBar(
-            title: Row(
-              children: [
-                if(contentWidget != rootWidget) ...{
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    onPressed: _goBack,
-                  ),
-                }
-              ]
-            ),
+            title: Row(children: [
+              if (contentWidget != rootWidget) ...{
+                IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  onPressed: _goBack,
+                ),
+              }
+            ]),
             backgroundColor: const Color.fromRGBO(245, 130, 42, 1),
             iconTheme: const IconThemeData(color: Colors.white),
             actions: [
               IconButton(
-                icon: const Icon(Icons.link),
+                icon: const Icon(Icons.launch),
                 onPressed: _launchConUrl,
               ),
             ],
@@ -214,7 +211,9 @@ class MainPageTemplateState extends State<MainPageTemplate> {
                   child: SizedBox(
                     width: double.infinity,
                     height: 200,
-                    child: VideoPlayerWidget(videoUrl: videoPath!), // Play video if a path is provided
+                    child: VideoPlayerWidget(
+                        videoUrl:
+                            videoPath!), // Play video if a path is provided
                   ),
                 ),
               ],
@@ -244,7 +243,8 @@ class MainPageTemplateState extends State<MainPageTemplate> {
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: contentWidget!.getWidget(context, _setCurrentContentWidget),
+                    child: contentWidget!
+                        .getWidget(context, _setCurrentContentWidget),
                   ),
                 ),
               ),

@@ -1,14 +1,20 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hendrix_tours_app/firebase_options.dart';
 import 'package:hendrix_tours_app/objects/theme_data.dart';
-import 'package:hendrix_tours_app/screens/academics_page.dart';
-import 'package:hendrix_tours_app/screens/athletics_page.dart';
-import 'package:hendrix_tours_app/screens/student_life_page.dart';
-import 'package:hendrix_tours_app/screens/food_housing.dart';
+import 'package:hendrix_tours_app/services/firebase_service.dart';
 import 'package:hendrix_tours_app/templates/main_page_template.dart';
-import 'package:hendrix_tours_app/objects/list_view_item.dart';
-import 'package:hendrix_tours_app/test_root.dart';
+import 'package:hendrix_tours_app/objects/widget_item.dart';
 
-void main() {
+void main() async {
+  // Ensure Flutter is initialized
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Firebase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
 }
 
@@ -21,84 +27,77 @@ class MyApp extends StatelessWidget {
       title: 'Hendrix Tours',
       theme: hendrixTodayLightMode,
       home: const HomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MainPageTemplate(
-      //pageTitle: 'Welcome',
-      //hasImage: false,
-      // Hendrix Tours Video Path:
-      //videoPath: 'https://drive.google.com/uc?export=download&id=1DIb09B9lxjHeLjcpLOxRj-b0CEOADmWX',
-      // Funny Video Path:
-      //videoPath: 'https://drive.google.com/uc?export=download&id=1QpEP4rnBEqwu-zaHSSwVfrU-hInBe5DG',
-
-      rootWidget: testRoot,//CustomHomeListView(),
-      showBackButton: false,
-    );
-  }
+  State<HomePage> createState() => _HomePageState();
 }
 
-class CustomHomeListView extends ListViewItem {
-  CustomHomeListView()
-      : super(
-          title: 'Home',
-          child: const [],
-          hasImage: false,
-          videoPath: 'https://drive.google.com/uc?export=download&id=1DIb09B9lxjHeLjcpLOxRj-b0CEOADmWX',
-          isListView: true,
-          link: '',
-        );
+class _HomePageState extends State<HomePage> {
+  final FirebaseService _firebaseService = FirebaseService();
+  late Future<WidgetItem> _rootWidgetFuture;
 
   @override
-  Widget getWidget(BuildContext context, onChangeWidget) {
-    return Column(
-      children: [
-        HendrixButton(
-          text: 'Academics',
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const AcademicsPage()),
-            );
-          },
-        ),
-        const SizedBox(height: 16),
-        HendrixButton(
-          text: 'Athletics',
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const AthleticsPage()),
-            );
-          },
-        ),
-        const SizedBox(height: 16),
-        HendrixButton(
-          text: 'Food and Housing',
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const FoodHousingPage()),
-            );
-          },
-        ),
-        const SizedBox(height: 16),
-        HendrixButton(
-          text: 'Student Life',
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const StudentLifePage()),
-            );
-          },
-        ),
-      ],
+  void initState() {
+    super.initState();
+    _rootWidgetFuture = _firebaseService.getPage('homepage');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<WidgetItem>(
+      future: _rootWidgetFuture,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                    Color.fromRGBO(245, 130, 42, 1)),
+              ),
+            ),
+          );
+        }
+
+        if (snapshot.hasError) {
+          return Scaffold(
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.error_outline,
+                    color: Color.fromRGBO(245, 130, 42, 1),
+                    size: 60,
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Error loading content',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    '${snapshot.error}',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+
+        return MainPageTemplate(
+          rootWidget: snapshot.data!,
+          showBackButton: false,
+        );
+      },
     );
   }
 }
