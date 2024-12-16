@@ -205,7 +205,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
         body: SafeArea(
           child: Column(
             children: [
-              if (videoPath != null) ...[
+              if (!hasImage) ...[
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: SizedBox(
@@ -217,7 +217,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
                   ),
                 ),
               ],
-              if (hasImage && videoPath == null) ...[
+              if (hasImage) ...[
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Container(
@@ -226,14 +226,14 @@ class MainPageTemplateState extends State<MainPageTemplate> {
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(8),
-                      image: imagePath != null
+                      image: imagePath != ""
                           ? DecorationImage(
                               image: AssetImage(imagePath!),
                               fit: BoxFit.cover,
                             )
                           : null,
                     ),
-                    child: imagePath == null
+                    child: imagePath == ""
                         ? const Center(child: Text('Media Placeholder'))
                         : null,
                   ),
