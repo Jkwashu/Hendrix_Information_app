@@ -30,17 +30,17 @@ class InfoViewItem implements WidgetItem {
   @override
   final String? videoPath; // video path
   final String description;
-  final List<InfoViewItem> connBuildings;
-  final List<InfoViewItem> connDepartments;
+  final List<WidgetItem> connBuildings;
+  final List<WidgetItem> connDepartments;
   @override
   final String link;
 
   // Returns a list of TextButton objects that will connect to their associated InfoViewPage.
-  List<Widget> linkTextList(context, List<InfoViewItem> list, onChangeWidget) {
+  List<Widget> linkTextList(context, List<WidgetItem> list, onChangeWidget) {
     List<TextButton> connButtons = [];
 
     if (list.isNotEmpty) {
-      for (InfoViewItem i in list) {
+      for (WidgetItem i in list) {
         connButtons.add(TextButton(
           onPressed: () {onChangeWidget(i);},
           child: Text(
