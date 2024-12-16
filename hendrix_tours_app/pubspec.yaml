@@ -87,6 +87,42 @@ flutter:
       - lib/assets/profile.jpg
       - lib/assets/campus.jpg
       - lib/assets/Logo.png
+      - lib/assets/altusbell.jpg
+      - lib/assets/aonian.jpg
+      - lib/assets/art.jpg
+      - lib/assets/biology.jpg
+      - lib/assets/campus.jpg
+      - lib/assets/chapel.jpg
+      - lib/assets/chemistry.jpg
+      - lib/assets/clifton.jpg
+      - lib/assets/climbing.jpg
+      - lib/assets/committees.jpg
+      - lib/assets/corner.jpg
+      - lib/assets/csci.png
+      - lib/assets/english.jpg
+      - lib/assets/front.jpg
+      - lib/assets/gardening.jpg
+      - lib/assets/hendrix.jpg
+      - lib/assets/houses.jpg
+      - lib/assets/huntington.jpg
+      - lib/assets/khdx.jpg
+      - lib/assets/kitty.jpg
+      - lib/assets/languages.jpg
+      - lib/assets/martin.jpg
+      - lib/assets/mcrey.jpg
+      - lib/assets/mdc.jpg
+      - lib/assets/miller.jpg
+      - lib/assets/mse.jpg
+      - lib/assets/msn.jpg
+      - lib/assets/music.jpg
+      - lib/assets/orientation.jpg
+      - lib/assets/philosophy.jpg
+      - lib/assets/physics.jpg
+      - lib/assets/soar.jpg
+      - lib/assets/sociology.jpg
+      - lib/assets/swordclub.jpg
+      - lib/assets/theatre.jpg
+      - lib/assets/vac.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
