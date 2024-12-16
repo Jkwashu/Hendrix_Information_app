@@ -205,7 +205,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
         body: SafeArea(
           child: Column(
             children: [
-              if (videoPath != null) ...[
+              if (!hasImage) ...[
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: SizedBox(
@@ -217,7 +217,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
                   ),
                 ),
               ],
-              if (hasImage && videoPath == null) ...[
+              if (hasImage) ...[
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Container(
