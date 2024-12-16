@@ -132,15 +132,6 @@ flutter:
       - lib/assets/baseball.jpg
       - lib/assets/soccer.jpg
       - lib/assets/wac.jpg
-      - lib/assets/artmajor.jpg
-      - lib/assets/bcmb.jpg
-      - lib/assets/chemphys.jpg
-      - lib/assets/writing.jpg
-      - lib/assets/env.jpg
-      - lib/assets/health.jpg
-      - lib/assets/dance.jpg
-      - lib/assets/phys.jpg
-      - lib/assets/film.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
