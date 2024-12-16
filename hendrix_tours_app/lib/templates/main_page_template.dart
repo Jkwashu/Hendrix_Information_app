@@ -231,11 +231,11 @@ class MainPageTemplateState extends State<MainPageTemplate> {
                               image: AssetImage(imagePath!),
                               fit: BoxFit.cover,
                             )
-                          : null,
+                          : DecorationImage(
+                              image: AssetImage("lib/assets/altusbell.jpg"),
+                              fit: BoxFit.cover,
+                          )
                     ),
-                    child: imagePath == ""
-                        ? const Center(child: Text('Media Placeholder'))
-                        : null,
                   ),
                 ),
               ],

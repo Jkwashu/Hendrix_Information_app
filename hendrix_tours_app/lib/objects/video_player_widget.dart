@@ -12,8 +12,8 @@ class VideoPlayerWidget extends StatefulWidget {
 
 class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   late VideoPlayerController _controller;
-  late Future<void> _initializeVideoPlayerFuture; // Ensure proper initialization tracking
-  bool _isPaused = true; // Start in a paused state
+  late Future<void> _initializeVideoPlayerFuture;
+  bool _isPlaying = false; // Track play/pause state locally
 
   @override
   void initState() {
@@ -22,30 +22,33 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
       Uri.parse(widget.videoUrl),
     );
     _initializeVideoPlayerFuture = _controller.initialize().then((_) {
-      if (mounted) {
-        setState(() {}); // Rebuild when video is initialized
-      }
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) setState(() {}); // Ensure rebuild after initialization
+      });
     }).catchError((error) {
       debugPrint('Error initializing video: $error');
     });
-    _controller.setLooping(true); // Enable looping
+    _controller.setLooping(true);
   }
 
   @override
   void dispose() {
-    _controller.dispose(); // Clean up the controller
+    _controller.dispose();
     super.dispose();
   }
 
   void _togglePlayPause() {
+    Duration position = _controller.value.position;
     setState(() {
       if (_controller.value.isPlaying) {
         _controller.pause();
-        _isPaused = true; // Update state to show the overlay
+        _isPlaying = false;
       } else {
+        _controller.seekTo(position);
         _controller.play();
-        _isPaused = false; // Update state to hide the overlay
+        _isPlaying = true;
       }
+      debugPrint('isPlaying state: $_isPlaying'); // Debug current play/pause state
     });
   }
 
@@ -56,7 +59,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           return Stack(
-            alignment: Alignment.center, // Center the overlay icon
+            alignment: Alignment.center,
             children: [
               // Video Player
               AspectRatio(
@@ -64,7 +67,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                 child: VideoPlayer(_controller),
               ),
 
-              // Overlay for Play Icon and GestureDetector
+              // GestureDetector for play/pause toggle
               GestureDetector(
                 onTap: _togglePlayPause,
                 child: AspectRatio(
@@ -76,29 +79,28 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
               ),
 
               // Play Icon Overlay (Visible when paused)
-              if (_isPaused)
-              GestureDetector(
-                onTap: _togglePlayPause,
-                child: AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: Container(
-                    color: Colors.black45, // Semi-transparent black background
-                    child: const Center(
-                      child: Icon(
-                        Icons.play_arrow_rounded,
-                        size: 64,
-                        color: Colors.white,
+              if (!_isPlaying)
+                GestureDetector(
+                  onTap: _togglePlayPause,
+                  child: AspectRatio(
+                    aspectRatio: _controller.value.aspectRatio,
+                    child: Container(
+                      color: Colors.black45, // Semi-transparent black background
+                      child: const Center(
+                        child: Icon(
+                          Icons.play_arrow_rounded,
+                          size: 64,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              )
             ],
           );
         } else {
-          // Show loading spinner while video initializes
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(), // Show loading spinner
           );
         }
       },
