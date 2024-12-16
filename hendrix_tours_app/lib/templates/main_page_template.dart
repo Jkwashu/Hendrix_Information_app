@@ -226,14 +226,14 @@ class MainPageTemplateState extends State<MainPageTemplate> {
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(8),
-                      image: imagePath != null
+                      image: imagePath != ""
                           ? DecorationImage(
                               image: AssetImage(imagePath!),
                               fit: BoxFit.cover,
                             )
                           : null,
                     ),
-                    child: imagePath == null
+                    child: imagePath == ""
                         ? const Center(child: Text('Media Placeholder'))
                         : null,
                   ),
