@@ -80,6 +80,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
   String link = '';
   String visitLink = 'https://www.hendrix.edu/visit/';
   StackData stack = StackData();
+  final ScrollController _scrollController = ScrollController();
 
   // Launches the visit url
   Future<void> _launchUrl() async {
@@ -107,6 +108,9 @@ class MainPageTemplateState extends State<MainPageTemplate> {
       link = contentWidget!.link;
       stack.push(contentWidget);
     });
+    //if(_scrollController.hasClients) {
+      _scrollController.jumpTo(0);
+    //}
   }
 
   void _goBack() {
@@ -119,6 +123,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
       videoPath = contentWidget!.videoPath;
       link = contentWidget!.link;
     });
+    _scrollController.jumpTo(0);
   }
 
   void _goHome() {
@@ -132,6 +137,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
       videoPath = contentWidget!.videoPath;
       link = contentWidget!.link;
     });
+    _scrollController.jumpTo(0);
   }
 
   @override
@@ -231,7 +237,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
                               image: AssetImage(imagePath!),
                               fit: BoxFit.cover,
                             )
-                          : DecorationImage(
+                          : const DecorationImage(
                               image: AssetImage("lib/assets/altusbell.jpg"),
                               fit: BoxFit.cover,
                           )
@@ -241,6 +247,7 @@ class MainPageTemplateState extends State<MainPageTemplate> {
               ],
               Expanded(
                 child: SingleChildScrollView(
+                  controller: _scrollController,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: contentWidget!
